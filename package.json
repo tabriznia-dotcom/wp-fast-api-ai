@@ -1,0 +1,33 @@
+{
+	"name": "ai-page-designer",
+	"version": "1.0.0",
+	"private": true,
+	"description": "Admin UI for the AI Page Designer WordPress plugin.",
+	"license": "GPL-2.0-or-later",
+	"scripts": {
+		"build": "wp-scripts build src/wizard.js src/admin.js --output-path=build",
+		"start": "wp-scripts start src/wizard.js src/admin.js --output-path=build",
+		"lint:js": "wp-scripts lint-js src tests/js tests/E2E",
+		"lint:css": "wp-scripts lint-style \"assets/css/**/*.css\" \"src/**/*.scss\"",
+		"test:blocks": "node tests/js/validate-blocks.js tests/fixtures/*.html",
+		"test:e2e": "playwright test --config tests/E2E/playwright.config.js",
+		"make-pot": "wp i18n make-pot . languages/ai-page-designer.pot --exclude=node_modules,vendor,tests,build --headers='{\"Report-Msgid-Bugs-To\":\"https://github.com/tabriznia-dotcom/wp-fast-api-ai/issues\"}'",
+		"make-json": "wp i18n make-json languages --use-map=languages/js-map.json",
+		"plugin-zip": "bash bin/build-zip.sh"
+	},
+	"devDependencies": {
+		"@axe-core/playwright": "^4.11.0",
+		"@playwright/test": "1.56.1",
+		"@wordpress/block-library": "^11.1.0",
+		"@wordpress/blocks": "^16.1.0",
+		"@wordpress/scripts": "^36.0.0",
+		"global-jsdom": "^30.0.0",
+		"jsdom": "^30.1.1"
+	},
+	"dependencies": {
+		"@wordpress/api-fetch": "^7.56.0",
+		"@wordpress/components": "^41.0.0",
+		"@wordpress/element": "^8.8.0",
+		"@wordpress/i18n": "^6.29.0"
+	}
+}

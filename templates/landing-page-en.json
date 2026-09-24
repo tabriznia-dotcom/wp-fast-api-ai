@@ -1,0 +1,452 @@
+{
+ "schema_version": "1.0",
+ "meta": {
+  "title": "Product landing page",
+  "description": "A conversion-focused landing page for a product or service.",
+  "language": "en",
+  "direction": "ltr",
+  "page_type": "landing",
+  "style": "saas"
+ },
+ "design_tokens": {
+  "colors": {
+   "primary": "#4338ca",
+   "secondary": "#0f766e",
+   "accent": "#c2410c",
+   "text": "#111827",
+   "text_muted": "#4b5563",
+   "background": "#ffffff",
+   "surface": "#eef2ff",
+   "on_primary": "#ffffff"
+  },
+  "typography": {
+   "heading_font": "system-sans",
+   "body_font": "system-sans",
+   "base_size": 17,
+   "scale": 1.25,
+   "line_height": 1.6,
+   "heading_weight": 800
+  },
+  "radius": 12,
+  "shadow": "medium",
+  "section_spacing": "lg",
+  "container_width": 1140,
+  "breakpoints": {
+   "mobile": 480,
+   "tablet": 782
+  }
+ },
+ "sections": [
+  {
+   "id": "hero",
+   "type": "hero",
+   "label": "Introduction",
+   "background": "surface",
+   "align": "center",
+   "padding": "xl",
+   "layout": {
+    "stack_on_mobile": true,
+    "vertical_align": "center"
+   },
+   "columns": [
+    {
+     "width": 0,
+     "style": "plain",
+     "components": [
+      {
+       "type": "heading",
+       "level": 1,
+       "text": "Launch faster with a product your customers love",
+       "align": "center"
+      },
+      {
+       "type": "paragraph",
+       "text": "Describe the main benefit of your product in one or two sentences. Focus on the outcome your customers get.",
+       "size": "large",
+       "align": "center",
+       "muted": true
+      },
+      {
+       "type": "buttons",
+       "align": "center",
+       "items": [
+        {
+         "text": "Get started",
+         "url": "#contact",
+         "variant": "primary",
+         "aria_label": ""
+        },
+        {
+         "text": "See features",
+         "url": "#features",
+         "variant": "outline",
+         "aria_label": ""
+        }
+       ]
+      },
+      {
+       "type": "image",
+       "source": "placeholder",
+       "alt": "Screenshot of the product dashboard",
+       "caption": "",
+       "decorative": false,
+       "aspect": "16/9"
+      }
+     ]
+    }
+   ]
+  },
+  {
+   "id": "features",
+   "type": "features",
+   "label": "Key features",
+   "background": "default",
+   "align": "start",
+   "padding": "lg",
+   "layout": {
+    "stack_on_mobile": true,
+    "vertical_align": "top"
+   },
+   "columns": [
+    {
+     "width": 0,
+     "style": "card",
+     "components": [
+      {
+       "type": "icon",
+       "name": "bolt",
+       "label": ""
+      },
+      {
+       "type": "heading",
+       "level": 3,
+       "text": "Fast setup"
+      },
+      {
+       "type": "paragraph",
+       "text": "Explain how quickly customers can get value, without technical jargon.",
+       "size": "normal",
+       "muted": true
+      }
+     ]
+    },
+    {
+     "width": 0,
+     "style": "card",
+     "components": [
+      {
+       "type": "icon",
+       "name": "shield",
+       "label": ""
+      },
+      {
+       "type": "heading",
+       "level": 3,
+       "text": "Secure by default"
+      },
+      {
+       "type": "paragraph",
+       "text": "Describe how you protect customer data and privacy.",
+       "size": "normal",
+       "muted": true
+      }
+     ]
+    },
+    {
+     "width": 0,
+     "style": "card",
+     "components": [
+      {
+       "type": "icon",
+       "name": "chat",
+       "label": ""
+      },
+      {
+       "type": "heading",
+       "level": 3,
+       "text": "Helpful support"
+      },
+      {
+       "type": "paragraph",
+       "text": "Tell visitors how and when they can reach your team.",
+       "size": "normal",
+       "muted": true
+      }
+     ]
+    }
+   ],
+   "intro": [
+    {
+     "type": "heading",
+     "level": 2,
+     "text": "Everything you need to get results",
+     "align": "center"
+    },
+    {
+     "type": "paragraph",
+     "text": "Summarize in one sentence why these features matter to your customers.",
+     "size": "normal",
+     "align": "center",
+     "muted": true
+    }
+   ]
+  },
+  {
+   "id": "stats",
+   "type": "stats",
+   "label": "Results",
+   "background": "primary",
+   "align": "center",
+   "padding": "md",
+   "layout": {
+    "stack_on_mobile": true,
+    "vertical_align": "top"
+   },
+   "columns": [
+    {
+     "width": 0,
+     "style": "plain",
+     "components": [
+      {
+       "type": "stat",
+       "value": "[Number]",
+       "label": "Customers served"
+      }
+     ]
+    },
+    {
+     "width": 0,
+     "style": "plain",
+     "components": [
+      {
+       "type": "stat",
+       "value": "[Number]",
+       "label": "Average rating"
+      }
+     ]
+    },
+    {
+     "width": 0,
+     "style": "plain",
+     "components": [
+      {
+       "type": "stat",
+       "value": "[Number]",
+       "label": "Countries"
+      }
+     ]
+    }
+   ],
+   "intro": [
+    {
+     "type": "heading",
+     "level": 2,
+     "text": "Results that speak for themselves",
+     "align": "center"
+    }
+   ]
+  },
+  {
+   "id": "testimonials",
+   "type": "testimonials",
+   "label": "Testimonials",
+   "background": "default",
+   "align": "start",
+   "padding": "lg",
+   "layout": {
+    "stack_on_mobile": true,
+    "vertical_align": "top"
+   },
+   "columns": [
+    {
+     "width": 0,
+     "style": "card",
+     "components": [
+      {
+       "type": "testimonial",
+       "quote": "Replace this with a real quote from a customer who gave permission to publish it.",
+       "author": "Customer name",
+       "role": "Role, Company"
+      }
+     ]
+    },
+    {
+     "width": 0,
+     "style": "card",
+     "components": [
+      {
+       "type": "testimonial",
+       "quote": "A second customer quote that highlights a different benefit.",
+       "author": "Customer name",
+       "role": "Role, Company"
+      }
+     ]
+    }
+   ],
+   "intro": [
+    {
+     "type": "heading",
+     "level": 2,
+     "text": "What our customers say",
+     "align": "center"
+    }
+   ]
+  },
+  {
+   "id": "pricing",
+   "type": "pricing",
+   "label": "Pricing",
+   "background": "surface",
+   "align": "center",
+   "padding": "lg",
+   "layout": {
+    "stack_on_mobile": true,
+    "vertical_align": "top"
+   },
+   "columns": [
+    {
+     "width": 0,
+     "style": "plain",
+     "components": [
+      {
+       "type": "pricing",
+       "plans": [
+        {
+         "name": "Starter",
+         "price": "[Price]",
+         "period": "/ month",
+         "description": "For individuals getting started.",
+         "features": [
+          "Core features",
+          "Email support"
+         ],
+         "cta": {
+          "text": "Get started",
+          "url": "#contact",
+          "variant": "primary",
+          "aria_label": ""
+         },
+         "highlighted": false
+        },
+        {
+         "name": "Pro",
+         "price": "[Price]",
+         "period": "/ month",
+         "description": "For growing teams.",
+         "features": [
+          "Everything in Starter",
+          "Priority support",
+          "Advanced reports"
+         ],
+         "cta": {
+          "text": "Get started",
+          "url": "#contact",
+          "variant": "primary",
+          "aria_label": ""
+         },
+         "highlighted": true
+        }
+       ]
+      }
+     ]
+    }
+   ],
+   "intro": [
+    {
+     "type": "heading",
+     "level": 2,
+     "text": "Simple, transparent pricing",
+     "align": "center"
+    }
+   ]
+  },
+  {
+   "id": "faq",
+   "type": "faq",
+   "label": "Frequently asked questions",
+   "background": "default",
+   "align": "start",
+   "padding": "lg",
+   "layout": {
+    "stack_on_mobile": true,
+    "vertical_align": "top"
+   },
+   "columns": [
+    {
+     "width": 0,
+     "style": "plain",
+     "components": [
+      {
+       "type": "faq",
+       "items": [
+        {
+         "question": "How do I get started?",
+         "answer": "Explain the first steps a new customer takes."
+        },
+        {
+         "question": "Can I cancel at any time?",
+         "answer": "Describe your cancellation and refund policy."
+        },
+        {
+         "question": "Is my data secure?",
+         "answer": "Summarize your security and privacy practices."
+        }
+       ]
+      }
+     ]
+    }
+   ],
+   "intro": [
+    {
+     "type": "heading",
+     "level": 2,
+     "text": "Frequently asked questions"
+    }
+   ]
+  },
+  {
+   "id": "contact",
+   "type": "cta",
+   "label": "Call to action",
+   "background": "primary",
+   "align": "center",
+   "padding": "lg",
+   "layout": {
+    "stack_on_mobile": true,
+    "vertical_align": "top"
+   },
+   "columns": [
+    {
+     "width": 0,
+     "style": "plain",
+     "components": [
+      {
+       "type": "heading",
+       "level": 2,
+       "text": "Ready to get started?",
+       "align": "center"
+      },
+      {
+       "type": "paragraph",
+       "text": "Invite visitors to take the next step and tell them what happens after they click.",
+       "size": "normal",
+       "align": "center"
+      },
+      {
+       "type": "buttons",
+       "align": "center",
+       "items": [
+        {
+         "text": "Get started",
+         "url": "mailto:hello@example.com",
+         "variant": "primary",
+         "aria_label": ""
+        }
+       ]
+      }
+     ]
+    }
+   ]
+  }
+ ]
+}

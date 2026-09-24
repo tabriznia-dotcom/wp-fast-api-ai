@@ -1,0 +1,333 @@
+/**
+ * Wizard styles. Logical properties only, so RTL admin works without a separate stylesheet.
+ */
+
+.aipd-wizard {
+	display: grid;
+	grid-template-columns: minmax(200px, 260px) minmax(0, 1fr);
+	gap: 24px;
+	margin-block-start: 16px;
+	max-inline-size: 1400px;
+
+	@media (max-width: 960px) {
+		grid-template-columns: minmax(0, 1fr);
+	}
+}
+
+.aipd-steps {
+	ol {
+		list-style: none;
+		margin: 0;
+		padding: 0;
+		counter-reset: none;
+
+		@media (max-width: 960px) {
+			display: flex;
+			overflow-x: auto;
+			gap: 4px;
+			padding-block-end: 4px;
+		}
+	}
+
+	li {
+		margin: 0 0 4px;
+	}
+
+	&__link {
+		display: flex;
+		align-items: center;
+		gap: 8px;
+		inline-size: 100%;
+		padding-block: 8px;
+		padding-inline: 8px;
+		border: 0;
+		border-radius: 4px;
+		background: transparent;
+		color: #50575e;
+		font-size: 13px;
+		text-align: start;
+		white-space: nowrap;
+	}
+
+	button.aipd-steps__link {
+		cursor: pointer;
+		color: #2271b1;
+
+		&:hover {
+			background: #f0f0f1;
+		}
+
+		&:focus-visible {
+			outline: 2px solid var(--wp-admin-theme-color, #2271b1);
+			outline-offset: 1px;
+		}
+	}
+
+	.is-current .aipd-steps__link {
+		background: #fff;
+		color: #1d2327;
+		font-weight: 600;
+		box-shadow: inset 3px 0 0 var(--wp-admin-theme-color, #2271b1);
+	}
+
+	&__num {
+		display: inline-grid;
+		place-items: center;
+		flex: 0 0 24px;
+		block-size: 24px;
+		border-radius: 50%;
+		background: #dcdcde;
+		color: #1d2327;
+		font-size: 12px;
+	}
+
+	.is-done .aipd-steps__num {
+		background: #00a32a;
+		color: #fff;
+	}
+
+	.is-current .aipd-steps__num {
+		background: var(--wp-admin-theme-color, #2271b1);
+		color: #fff;
+	}
+}
+
+[dir="rtl"] .aipd-steps .is-current .aipd-steps__link {
+	box-shadow: inset -3px 0 0 var(--wp-admin-theme-color, #2271b1);
+}
+
+.aipd-wizard__panel {
+	background: #fff;
+	border: 1px solid #dcdcde;
+	border-radius: 4px;
+	padding: clamp(16px, 3vw, 32px);
+	min-inline-size: 0;
+
+	> * + * {
+		margin-block-start: 16px;
+	}
+
+	.components-base-control + .components-base-control {
+		margin-block-start: 16px;
+	}
+}
+
+.aipd-step-title {
+	margin-block: 0 8px;
+	font-size: 1.4em;
+
+	&:focus {
+		outline: none;
+	}
+
+	&:focus-visible {
+		outline: 2px solid var(--wp-admin-theme-color, #2271b1);
+	}
+}
+
+.aipd-actions {
+	display: flex;
+	flex-wrap: wrap;
+	gap: 8px;
+	justify-content: flex-end;
+	margin-block-start: 24px;
+}
+
+.aipd-row {
+	display: grid;
+	grid-template-columns: repeat(auto-fit, minmax(220px, 1fr));
+	gap: 16px;
+}
+
+.aipd-choice-grid {
+	margin-block-start: 24px !important;
+	display: grid;
+	grid-template-columns: repeat(auto-fill, minmax(200px, 1fr));
+	gap: 12px;
+	border: 0;
+	margin: 0;
+	padding: 0;
+
+	legend {
+		font-weight: 600;
+		margin-block-end: 8px;
+		padding: 0;
+	}
+}
+
+.aipd-choice {
+	position: relative;
+	display: flex;
+	flex-direction: column;
+	gap: 4px;
+	padding: 16px;
+	border: 1px solid #c3c4c7;
+	border-radius: 4px;
+	cursor: pointer;
+
+	input {
+		position: absolute;
+		inset-block-start: 12px;
+		inset-inline-end: 12px;
+	}
+
+	strong {
+		padding-inline-end: 24px;
+	}
+
+	span {
+		color: #50575e;
+		font-size: 13px;
+	}
+
+	&.is-selected {
+		border-color: var(--wp-admin-theme-color, #2271b1);
+		box-shadow: 0 0 0 1px var(--wp-admin-theme-color, #2271b1);
+	}
+
+	&.is-disabled {
+		opacity: 0.6;
+		cursor: not-allowed;
+	}
+
+	&:focus-within {
+		outline: 2px solid var(--wp-admin-theme-color, #2271b1);
+		outline-offset: 2px;
+	}
+}
+
+.aipd-color-grid {
+	display: grid;
+	grid-template-columns: repeat(auto-fill, minmax(150px, 1fr));
+	gap: 12px;
+}
+
+.aipd-color {
+	display: flex;
+	align-items: center;
+	gap: 8px;
+
+	input[type="color"] {
+		inline-size: 48px;
+		block-size: 36px;
+		padding: 2px;
+		border: 1px solid #8c8f94;
+		border-radius: 4px;
+		background: #fff;
+	}
+}
+
+.aipd-direction {
+	padding: 12px 16px;
+	background: #f6f7f7;
+	border-inline-start: 4px solid var(--wp-admin-theme-color, #2271b1);
+}
+
+.aipd-outline {
+	margin: 0;
+	padding-inline-start: 1.5em;
+
+	&__item {
+		padding: 12px 0;
+		border-block-end: 1px solid #f0f0f1;
+	}
+
+	&__tools {
+		display: flex;
+		gap: 4px;
+		margin-block-start: 8px;
+	}
+}
+
+.aipd-template-list {
+	display: grid;
+	grid-template-columns: repeat(auto-fill, minmax(240px, 1fr));
+	gap: 16px;
+	list-style: none;
+	margin: 16px 0 0;
+	padding: 0;
+
+	h3 {
+		margin-block-start: 0;
+	}
+}
+
+.aipd-preview-toolbar {
+	display: flex;
+	gap: 4px;
+	flex-wrap: wrap;
+}
+
+.aipd-preview-frame {
+	overflow: auto;
+	background: repeating-conic-gradient(#f6f7f7 0% 25%, #fff 0% 50%) 50% / 16px 16px;
+	border: 1px solid #dcdcde;
+	border-radius: 4px;
+	padding: 12px;
+	text-align: center;
+
+	iframe {
+		display: block;
+		margin-inline: auto;
+		max-inline-size: 100%;
+		block-size: 70vh;
+		min-block-size: 480px;
+		border: 1px solid #c3c4c7;
+		background: #fff;
+		transition: width 0.2s ease;
+
+		@media (prefers-reduced-motion: reduce) {
+			transition: none;
+		}
+	}
+}
+
+.aipd-sections {
+	ul {
+		margin: 0;
+		padding: 0;
+		list-style: none;
+	}
+
+	li {
+		display: flex;
+		flex-wrap: wrap;
+		align-items: center;
+		gap: 8px;
+		padding-block: 8px;
+		border-block-end: 1px solid #f0f0f1;
+	}
+
+	&__name {
+		font-weight: 600;
+	}
+
+	&__tools {
+		display: flex;
+		gap: 4px;
+		margin-inline-start: auto;
+	}
+
+	&__form {
+		flex-basis: 100%;
+	}
+}
+
+.aipd-busy {
+	display: flex;
+	align-items: center;
+	gap: 12px;
+	padding: 24px 0;
+	font-size: 14px;
+}
+
+.aipd-modal__actions {
+	display: flex;
+	justify-content: flex-end;
+	gap: 8px;
+	margin-block-start: 16px;
+}
+
+.aipd-muted {
+	color: #50575e;
+}

@@ -1,0 +1,35 @@
+{
+	"name": "ai-page-designer/ai-page-designer",
+	"description": "AI Page Designer: turn a written brief into a validated page schema and a draft page for the block editor, Elementor or classic HTML.",
+	"type": "wordpress-plugin",
+	"license": "GPL-2.0-or-later",
+	"require": {
+		"php": ">=7.4"
+	},
+	"require-dev": {
+		"phpunit/phpunit": "^9.6",
+		"yoast/phpunit-polyfills": "^2.0",
+		"wp-coding-standards/wpcs": "^3.1",
+		"phpcompatibility/phpcompatibility-wp": "^2.1",
+		"dealerdirect/phpcodesniffer-composer-installer": "^1.0"
+	},
+	"config": {
+		"allow-plugins": {
+			"dealerdirect/phpcodesniffer-composer-installer": true
+		},
+		"platform": {
+			"php": "7.4.33"
+		},
+		"sort-packages": true
+	},
+	"scripts": {
+		"lint": "phpcs",
+		"lint:fix": "phpcbf",
+		"test": "phpunit",
+		"test:unit": "phpunit --testsuite unit",
+		"test:integration": "phpunit --testsuite integration",
+		"test:elementor": "phpunit --group elementor",
+		"test:multisite": "WP_MULTISITE=1 phpunit",
+		"compat": "phpcs --standard=PHPCompatibilityWP --runtime-set testVersion 7.4- --extensions=php --ignore=vendor/*,node_modules/*,build/*,tests/* ."
+	}
+}

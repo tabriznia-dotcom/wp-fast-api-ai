@@ -1,0 +1,8 @@
+{
+	"src/wizard.js": "build/wizard.js",
+	"src/wizard/App.js": "build/wizard.js",
+	"src/wizard/api.js": "build/wizard.js",
+	"src/wizard/components.js": "build/wizard.js",
+	"src/wizard/constants.js": "build/wizard.js",
+	"src/admin.js": "build/admin.js"
+}

@@ -1,0 +1,25 @@
+# Files excluded from the release ZIP (see bin/build-zip.sh).
+/.git
+/.github
+/.distignore
+/.gitignore
+/.editorconfig
+/.wordpress-org
+/artifacts
+/bin
+/dist
+/docs
+/node_modules
+/tests
+/vendor
+/composer.json
+/composer.lock
+/package.json
+/package-lock.json
+/phpcs.xml.dist
+/phpunit.xml.dist
+/README.md
+/CONTRIBUTING.md
+/build/*-rtl.css
+/.phpunit.result.cache
+/languages/js-map.json

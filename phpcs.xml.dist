@@ -1,0 +1,42 @@
+<?xml version="1.0"?>
+<ruleset name="AI Page Designer">
+	<description>WordPress Coding Standards and PHP compatibility for AI Page Designer.</description>
+
+	<file>.</file>
+	<exclude-pattern>/vendor/*</exclude-pattern>
+	<exclude-pattern>/node_modules/*</exclude-pattern>
+	<exclude-pattern>/build/*</exclude-pattern>
+	<exclude-pattern>/artifacts/*</exclude-pattern>
+	<exclude-pattern>/dist/*</exclude-pattern>
+	<!-- Tests are not shipped and follow PHPUnit conventions. -->
+	<exclude-pattern>*/tests/*</exclude-pattern>
+
+	<arg name="extensions" value="php"/>
+	<arg name="colors"/>
+	<arg value="sp"/>
+
+	<config name="minimum_wp_version" value="6.6"/>
+	<config name="testVersion" value="7.4-"/>
+
+	<rule ref="WordPress">
+		<!-- PSR-4 class files (autoloaded without Composer) instead of class-*.php names. -->
+		<exclude name="WordPress.Files.FileName"/>
+	</rule>
+	<rule ref="WordPress.WP.I18n">
+		<properties>
+			<property name="text_domain" type="array">
+				<element value="ai-page-designer"/>
+			</property>
+		</properties>
+	</rule>
+	<rule ref="WordPress.NamingConventions.PrefixAllGlobals">
+		<properties>
+			<property name="prefixes" type="array">
+				<element value="aipd"/>
+				<element value="AIPageDesigner"/>
+			</property>
+		</properties>
+	</rule>
+	<rule ref="PHPCompatibilityWP"/>
+
+</ruleset>

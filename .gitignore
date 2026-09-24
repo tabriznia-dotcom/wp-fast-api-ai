@@ -1,0 +1,7 @@
+/node_modules/
+/vendor/
+/dist/
+/artifacts/
+/tests/fixtures/*.html
+.phpunit.result.cache
+.DS_Store

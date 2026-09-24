@@ -1,0 +1,452 @@
+{
+ "schema_version": "1.0",
+ "meta": {
+  "title": "صفحه فرود محصول",
+  "description": "یک صفحه فرود متمرکز بر تبدیل برای معرفی محصول یا خدمت.",
+  "language": "fa-IR",
+  "direction": "rtl",
+  "page_type": "landing",
+  "style": "saas"
+ },
+ "design_tokens": {
+  "colors": {
+   "primary": "#4338ca",
+   "secondary": "#0f766e",
+   "accent": "#c2410c",
+   "text": "#111827",
+   "text_muted": "#4b5563",
+   "background": "#ffffff",
+   "surface": "#eef2ff",
+   "on_primary": "#ffffff"
+  },
+  "typography": {
+   "heading_font": "system-sans",
+   "body_font": "system-sans",
+   "base_size": 17,
+   "scale": 1.25,
+   "line_height": 1.6,
+   "heading_weight": 800
+  },
+  "radius": 12,
+  "shadow": "medium",
+  "section_spacing": "lg",
+  "container_width": 1140,
+  "breakpoints": {
+   "mobile": 480,
+   "tablet": 782
+  }
+ },
+ "sections": [
+  {
+   "id": "hero",
+   "type": "hero",
+   "label": "معرفی",
+   "background": "surface",
+   "align": "center",
+   "padding": "xl",
+   "layout": {
+    "stack_on_mobile": true,
+    "vertical_align": "center"
+   },
+   "columns": [
+    {
+     "width": 0,
+     "style": "plain",
+     "components": [
+      {
+       "type": "heading",
+       "level": 1,
+       "text": "سریع‌تر راه‌اندازی کنید؛ با محصولی که مشتریانتان دوستش دارند",
+       "align": "center"
+      },
+      {
+       "type": "paragraph",
+       "text": "مزیت اصلی محصول خود را در یک یا دو جمله توضیح دهید. روی نتیجه‌ای که مشتری به دست می‌آورد تمرکز کنید.",
+       "size": "large",
+       "align": "center",
+       "muted": true
+      },
+      {
+       "type": "buttons",
+       "align": "center",
+       "items": [
+        {
+         "text": "شروع کنید",
+         "url": "#contact",
+         "variant": "primary",
+         "aria_label": ""
+        },
+        {
+         "text": "مشاهده امکانات",
+         "url": "#features",
+         "variant": "outline",
+         "aria_label": ""
+        }
+       ]
+      },
+      {
+       "type": "image",
+       "source": "placeholder",
+       "alt": "تصویر داشبورد محصول",
+       "caption": "",
+       "decorative": false,
+       "aspect": "16/9"
+      }
+     ]
+    }
+   ]
+  },
+  {
+   "id": "features",
+   "type": "features",
+   "label": "امکانات کلیدی",
+   "background": "default",
+   "align": "start",
+   "padding": "lg",
+   "layout": {
+    "stack_on_mobile": true,
+    "vertical_align": "top"
+   },
+   "columns": [
+    {
+     "width": 0,
+     "style": "card",
+     "components": [
+      {
+       "type": "icon",
+       "name": "bolt",
+       "label": ""
+      },
+      {
+       "type": "heading",
+       "level": 3,
+       "text": "راه‌اندازی سریع"
+      },
+      {
+       "type": "paragraph",
+       "text": "توضیح دهید مشتری چقدر سریع به نتیجه می‌رسد، بدون اصطلاحات فنی.",
+       "size": "normal",
+       "muted": true
+      }
+     ]
+    },
+    {
+     "width": 0,
+     "style": "card",
+     "components": [
+      {
+       "type": "icon",
+       "name": "shield",
+       "label": ""
+      },
+      {
+       "type": "heading",
+       "level": 3,
+       "text": "امنیت پیش‌فرض"
+      },
+      {
+       "type": "paragraph",
+       "text": "بیان کنید چگونه از داده‌ها و حریم خصوصی مشتریان محافظت می‌کنید.",
+       "size": "normal",
+       "muted": true
+      }
+     ]
+    },
+    {
+     "width": 0,
+     "style": "card",
+     "components": [
+      {
+       "type": "icon",
+       "name": "chat",
+       "label": ""
+      },
+      {
+       "type": "heading",
+       "level": 3,
+       "text": "پشتیبانی دلسوز"
+      },
+      {
+       "type": "paragraph",
+       "text": "بگویید بازدیدکنندگان چگونه و چه زمانی می‌توانند با تیم شما در تماس باشند.",
+       "size": "normal",
+       "muted": true
+      }
+     ]
+    }
+   ],
+   "intro": [
+    {
+     "type": "heading",
+     "level": 2,
+     "text": "هر آنچه برای رسیدن به نتیجه نیاز دارید",
+     "align": "center"
+    },
+    {
+     "type": "paragraph",
+     "text": "در یک جمله توضیح دهید چرا این امکانات برای مشتریان شما مهم است.",
+     "size": "normal",
+     "align": "center",
+     "muted": true
+    }
+   ]
+  },
+  {
+   "id": "stats",
+   "type": "stats",
+   "label": "نتایج",
+   "background": "primary",
+   "align": "center",
+   "padding": "md",
+   "layout": {
+    "stack_on_mobile": true,
+    "vertical_align": "top"
+   },
+   "columns": [
+    {
+     "width": 0,
+     "style": "plain",
+     "components": [
+      {
+       "type": "stat",
+       "value": "[عدد]",
+       "label": "مشتری"
+      }
+     ]
+    },
+    {
+     "width": 0,
+     "style": "plain",
+     "components": [
+      {
+       "type": "stat",
+       "value": "[عدد]",
+       "label": "میانگین امتیاز"
+      }
+     ]
+    },
+    {
+     "width": 0,
+     "style": "plain",
+     "components": [
+      {
+       "type": "stat",
+       "value": "[عدد]",
+       "label": "کشور"
+      }
+     ]
+    }
+   ],
+   "intro": [
+    {
+     "type": "heading",
+     "level": 2,
+     "text": "نتایجی که گویای همه چیز است",
+     "align": "center"
+    }
+   ]
+  },
+  {
+   "id": "testimonials",
+   "type": "testimonials",
+   "label": "نظرات مشتریان",
+   "background": "default",
+   "align": "start",
+   "padding": "lg",
+   "layout": {
+    "stack_on_mobile": true,
+    "vertical_align": "top"
+   },
+   "columns": [
+    {
+     "width": 0,
+     "style": "card",
+     "components": [
+      {
+       "type": "testimonial",
+       "quote": "این متن را با نظر واقعی مشتری‌ای جایگزین کنید که اجازه انتشار داده است.",
+       "author": "نام مشتری",
+       "role": "سمت، شرکت"
+      }
+     ]
+    },
+    {
+     "width": 0,
+     "style": "card",
+     "components": [
+      {
+       "type": "testimonial",
+       "quote": "نظر دوم مشتری که مزیت دیگری را برجسته می‌کند.",
+       "author": "نام مشتری",
+       "role": "سمت، شرکت"
+      }
+     ]
+    }
+   ],
+   "intro": [
+    {
+     "type": "heading",
+     "level": 2,
+     "text": "مشتریان ما چه می‌گویند",
+     "align": "center"
+    }
+   ]
+  },
+  {
+   "id": "pricing",
+   "type": "pricing",
+   "label": "قیمت‌گذاری",
+   "background": "surface",
+   "align": "center",
+   "padding": "lg",
+   "layout": {
+    "stack_on_mobile": true,
+    "vertical_align": "top"
+   },
+   "columns": [
+    {
+     "width": 0,
+     "style": "plain",
+     "components": [
+      {
+       "type": "pricing",
+       "plans": [
+        {
+         "name": "پایه",
+         "price": "[قیمت]",
+         "period": "/ ماهانه",
+         "description": "برای افرادی که تازه شروع می‌کنند.",
+         "features": [
+          "امکانات اصلی",
+          "پشتیبانی ایمیلی"
+         ],
+         "cta": {
+          "text": "شروع کنید",
+          "url": "#contact",
+          "variant": "primary",
+          "aria_label": ""
+         },
+         "highlighted": false
+        },
+        {
+         "name": "حرفه‌ای",
+         "price": "[قیمت]",
+         "period": "/ ماهانه",
+         "description": "برای تیم‌های در حال رشد.",
+         "features": [
+          "همه امکانات پایه",
+          "پشتیبانی ویژه",
+          "گزارش‌های پیشرفته"
+         ],
+         "cta": {
+          "text": "شروع کنید",
+          "url": "#contact",
+          "variant": "primary",
+          "aria_label": ""
+         },
+         "highlighted": true
+        }
+       ]
+      }
+     ]
+    }
+   ],
+   "intro": [
+    {
+     "type": "heading",
+     "level": 2,
+     "text": "قیمت‌گذاری ساده و شفاف",
+     "align": "center"
+    }
+   ]
+  },
+  {
+   "id": "faq",
+   "type": "faq",
+   "label": "پرسش‌های متداول",
+   "background": "default",
+   "align": "start",
+   "padding": "lg",
+   "layout": {
+    "stack_on_mobile": true,
+    "vertical_align": "top"
+   },
+   "columns": [
+    {
+     "width": 0,
+     "style": "plain",
+     "components": [
+      {
+       "type": "faq",
+       "items": [
+        {
+         "question": "چطور شروع کنم؟",
+         "answer": "نخستین گام‌هایی را که مشتری جدید برمی‌دارد توضیح دهید."
+        },
+        {
+         "question": "آیا هر زمان می‌توانم لغو کنم؟",
+         "answer": "سیاست لغو و بازپرداخت خود را شرح دهید."
+        },
+        {
+         "question": "آیا داده‌های من امن است؟",
+         "answer": "رویکرد امنیتی و حریم خصوصی خود را خلاصه کنید."
+        }
+       ]
+      }
+     ]
+    }
+   ],
+   "intro": [
+    {
+     "type": "heading",
+     "level": 2,
+     "text": "پرسش‌های متداول"
+    }
+   ]
+  },
+  {
+   "id": "contact",
+   "type": "cta",
+   "label": "دعوت به اقدام",
+   "background": "primary",
+   "align": "center",
+   "padding": "lg",
+   "layout": {
+    "stack_on_mobile": true,
+    "vertical_align": "top"
+   },
+   "columns": [
+    {
+     "width": 0,
+     "style": "plain",
+     "components": [
+      {
+       "type": "heading",
+       "level": 2,
+       "text": "آماده شروع هستید؟",
+       "align": "center"
+      },
+      {
+       "type": "paragraph",
+       "text": "بازدیدکننده را به گام بعدی دعوت کنید و بگویید پس از کلیک چه اتفاقی می‌افتد.",
+       "size": "normal",
+       "align": "center"
+      },
+      {
+       "type": "buttons",
+       "align": "center",
+       "items": [
+        {
+         "text": "شروع کنید",
+         "url": "mailto:hello@example.com",
+         "variant": "primary",
+         "aria_label": ""
+        }
+       ]
+      }
+     ]
+    }
+   ]
+  }
+ ]
+}

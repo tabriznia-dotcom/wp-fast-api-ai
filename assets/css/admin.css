@@ -1,0 +1,167 @@
+/**
+ * Styles for server-rendered AI Page Designer screens.
+ * Uses logical properties so the same file works for LTR and RTL admin.
+ */
+
+.aipd-wrap .aipd-lead {
+	max-inline-size: 70ch;
+	font-size: 14px;
+}
+
+.aipd-grid {
+	display: grid;
+	grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+	gap: 16px;
+	margin-block-start: 16px;
+}
+
+.aipd-panel {
+	background: #fff;
+	border: 1px solid #dcdcde;
+	border-radius: 4px;
+	padding: 16px 20px;
+	margin-block-end: 16px;
+}
+
+.aipd-panel h2 {
+	margin-block-start: 0;
+	font-size: 1.2em;
+}
+
+.aipd-grid .aipd-panel {
+	margin-block-end: 0;
+}
+
+.aipd-panel--wide {
+	grid-column: 1 / -1;
+}
+
+.aipd-provider.is-active {
+	border-inline-start: 4px solid #2271b1;
+}
+
+.aipd-checklist {
+	margin: 0;
+}
+
+.aipd-checklist li {
+	display: flex;
+	align-items: center;
+	gap: 6px;
+}
+
+.aipd-checklist .is-done .dashicons {
+	color: #00a32a;
+}
+
+.aipd-checklist .is-todo .dashicons {
+	color: #996800;
+}
+
+.aipd-badge {
+	display: inline-block;
+	padding: 2px 8px;
+	border-radius: 10px;
+	background: #f0f0f1;
+	color: #1d2327;
+	font-size: 12px;
+	font-weight: 500;
+	vertical-align: middle;
+}
+
+.aipd-badge--primary {
+	background: #2271b1;
+	color: #fff;
+}
+
+.aipd-status {
+	display: inline-block;
+	padding: 1px 8px;
+	border-radius: 10px;
+	background: #f0f0f1;
+	font-size: 12px;
+}
+
+.aipd-status--completed,
+.aipd-status--info {
+	background: #edfaef;
+	color: #00450c;
+}
+
+.aipd-status--failed,
+.aipd-status--error {
+	background: #fcf0f1;
+	color: #8a2424;
+}
+
+.aipd-status--running,
+.aipd-status--queued,
+.aipd-status--warning {
+	background: #fcf9e8;
+	color: #614200;
+}
+
+.aipd-table {
+	margin-block: 12px;
+}
+
+.aipd-table td,
+.aipd-table th {
+	vertical-align: middle;
+}
+
+.aipd-actions {
+	display: flex;
+	flex-wrap: wrap;
+	gap: 6px;
+	align-items: center;
+}
+
+.aipd-inline-form {
+	display: inline;
+}
+
+.aipd-context {
+	display: block;
+	max-inline-size: 420px;
+	overflow-wrap: anywhere;
+	font-size: 11px;
+}
+
+.aipd-empty,
+.aipd-muted {
+	color: #50575e;
+}
+
+.aipd-test-result {
+	margin-inline-start: 8px;
+	font-weight: 600;
+}
+
+.aipd-test-result.is-success {
+	color: #00701a;
+}
+
+.aipd-test-result.is-error {
+	color: #b32d2e;
+}
+
+.aipd-filter {
+	margin-block: 12px;
+}
+
+.aipd-logo-preview img {
+	margin-block-start: 8px;
+	border: 1px solid #dcdcde;
+}
+
+.aipd-wizard-root .aipd-loading {
+	padding: 24px 0;
+}
+
+@media (max-width: 782px) {
+	.aipd-table {
+		display: block;
+		overflow-x: auto;
+	}
+}

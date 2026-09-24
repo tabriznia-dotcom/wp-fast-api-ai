@@ -1,0 +1,30 @@
+<?xml version="1.0"?>
+<phpunit
+	bootstrap="tests/bootstrap.php"
+	backupGlobals="false"
+	colors="true"
+	convertErrorsToExceptions="true"
+	convertNoticesToExceptions="true"
+	convertWarningsToExceptions="true"
+	convertDeprecationsToExceptions="true"
+	>
+	<testsuites>
+		<testsuite name="unit">
+			<directory suffix="Test.php">./tests/Unit/</directory>
+		</testsuite>
+		<testsuite name="integration">
+			<directory suffix="Test.php">./tests/Integration/</directory>
+		</testsuite>
+	</testsuites>
+	<groups>
+		<exclude>
+			<!-- Requires AIPD_TEST_ELEMENTOR_DIR; run separately with: composer test:elementor -->
+			<group>elementor</group>
+		</exclude>
+	</groups>
+	<coverage includeUncoveredFiles="true">
+		<include>
+			<directory suffix=".php">./includes/</directory>
+		</include>
+	</coverage>
+</phpunit>
