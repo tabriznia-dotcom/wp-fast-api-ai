@@ -10,10 +10,9 @@ namespace AIPageDesigner\Tests\Unit;
 use AIPageDesigner\PageBuilders\Elementor\ElementorAdapter;
 use AIPageDesigner\PageBuilders\Elementor\ElementorMapper;
 use AIPageDesigner\Schema\SchemaService;
-use AIPageDesigner\Tests\Integration\GutenbergFixturesTest;
+use AIPageDesigner\Tests\Fixtures;
 use AIPageDesigner\Tests\TestCase;
 
-require_once dirname( __DIR__ ) . '/Integration/GutenbergFixturesTest.php';
 
 /**
  * @covers \AIPageDesigner\PageBuilders\Elementor\ElementorMapper
@@ -101,14 +100,14 @@ class ElementorMapperTest extends TestCase {
 	}
 
 	public function test_pro_widgets_used_only_when_available() {
-		$schema = SchemaService::process( GutenbergFixturesTest::kitchen_sink( 'en' ) )['schema'];
+		$schema = SchemaService::process( Fixtures::kitchen_sink( 'en' ) )['schema'];
 		$types  = $this->widget_types( $this->flatten( ( new ElementorMapper( $schema, true, array( 'form', 'price-table' ) ) )->elements() ) );
 		$this->assertContains( 'form', $types );
 		$this->assertContains( 'price-table', $types );
 	}
 
 	public function test_output_is_json_serializable_and_has_no_shortcodes() {
-		$schema = SchemaService::process( GutenbergFixturesTest::kitchen_sink( 'en' ) )['schema'];
+		$schema = SchemaService::process( Fixtures::kitchen_sink( 'en' ) )['schema'];
 		$json   = wp_json_encode( ( new ElementorMapper( $schema, true ) )->elements() );
 		$this->assertIsString( $json );
 		$this->assertStringNotContainsString( '[gallery]', $json );

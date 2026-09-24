@@ -18,7 +18,16 @@ module.exports = defineConfig( {
 	expect: { timeout: 15000 },
 	fullyParallel: false,
 	workers: 1,
-	reporter: [ [ 'list' ], [ 'html', { outputFolder: path.join( ARTIFACTS, 'e2e-report' ), open: 'never' } ] ],
+	reporter: [
+		[ 'list' ],
+		[
+			'html',
+			{
+				outputFolder: path.join( ARTIFACTS, 'e2e-report' ),
+				open: 'never',
+			},
+		],
+	],
 	globalSetup: require.resolve( './global-setup.js' ),
 	use: {
 		baseURL: process.env.WP_BASE_URL || 'http://localhost:8889',
@@ -26,6 +35,8 @@ module.exports = defineConfig( {
 		trace: 'retain-on-failure',
 		screenshot: 'only-on-failure',
 		...devices[ 'Desktop Chrome' ],
-		launchOptions: process.env.CHROMIUM_PATH ? { executablePath: process.env.CHROMIUM_PATH } : {},
+		launchOptions: process.env.CHROMIUM_PATH
+			? { executablePath: process.env.CHROMIUM_PATH }
+			: {},
 	},
 } );

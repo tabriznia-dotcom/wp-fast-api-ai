@@ -90,9 +90,6 @@ final class JobRunner {
 		}
 
 		wp_clear_scheduled_hook( Installer::CRON_RUN_JOB, array( $uuid ) );
-		if ( function_exists( 'set_time_limit' ) ) {
-			@set_time_limit( 330 ); // phpcs:ignore WordPress.PHP.NoSilencedErrors.Discouraged -- May be disabled on some hosts.
-		}
 
 		$input  = json_decode( (string) $job['input'], true );
 		$result = is_array( $input ) ? $this->execute( $job['type'], $input ) : new WP_Error( 'aipd_job_invalid', __( 'The job data is invalid.', 'ai-page-designer' ) );

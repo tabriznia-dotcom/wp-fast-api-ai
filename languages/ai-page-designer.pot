@@ -9,7 +9,7 @@ msgstr ""
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=UTF-8\n"
 "Content-Transfer-Encoding: 8bit\n"
-"POT-Creation-Date: 2026-09-24T08:13:07+00:00\n"
+"POT-Creation-Date: 2026-09-24T08:30:17+00:00\n"
 "PO-Revision-Date: YEAR-MO-DA HO:MI+ZONE\n"
 "X-Generator: WP-CLI 2.12.0\n"
 "X-Domain: ai-page-designer\n"
@@ -851,7 +851,7 @@ msgid "API base URL"
 msgstr ""
 
 #: includes/AI/Providers/OpenAICompatibleProvider.php:63
-msgid "The base URL, without /chat/completions. HTTPS is required."
+msgid "The base URL of your provider, without /chat/completions, for example https://api.openai.com/v1. HTTPS is required."
 msgstr ""
 
 #: includes/AI/Providers/OpenAICompatibleProvider.php:67
@@ -1052,15 +1052,15 @@ msgstr ""
 msgid "The generation was interrupted before it finished. Please try again."
 msgstr ""
 
-#: includes/Jobs/JobRunner.php:98
+#: includes/Jobs/JobRunner.php:95
 msgid "The job data is invalid."
 msgstr ""
 
-#: includes/Jobs/JobRunner.php:137
+#: includes/Jobs/JobRunner.php:134
 msgid "The AI provider is not configured. No request was sent."
 msgstr ""
 
-#: includes/Jobs/JobRunner.php:166
+#: includes/Jobs/JobRunner.php:163
 msgid "Unknown job type."
 msgstr ""
 
@@ -1777,29 +1777,29 @@ msgstr ""
 msgid "Wizard steps"
 msgstr ""
 
-#: src/wizard/components.js:135
+#: src/wizard/components.js:138
 msgid "Technical details"
 msgstr ""
 
-#: src/wizard/components.js:146
+#: src/wizard/components.js:149
 msgid "Try again"
 msgstr ""
 
-#: src/wizard/components.js:167
+#: src/wizard/components.js:170
 msgid "Send this request?"
 msgstr ""
 
 #. translators: 1: what is generated, 2: service name.
-#: src/wizard/components.js:174
+#: src/wizard/components.js:177
 #, js-format
 msgid "To create the %1$s, your brief will be sent to %2$s. This request may be billed by your AI provider."
 msgstr ""
 
-#: src/wizard/components.js:187
+#: src/wizard/components.js:190
 msgid "Cancel"
 msgstr ""
 
-#: src/wizard/components.js:190
+#: src/wizard/components.js:193
 msgid "Send request"
 msgstr ""
 

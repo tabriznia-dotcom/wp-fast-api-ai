@@ -37,9 +37,9 @@ function aipd_uninstall_site() {
 	}
 
 	// Plugin tables.
-	// phpcs:disable WordPress.DB.DirectDatabaseQuery.DirectQuery, WordPress.DB.DirectDatabaseQuery.NoCaching, WordPress.DB.DirectDatabaseQuery.SchemaChange, WordPress.DB.PreparedSQL.InterpolatedNotPrepared -- Dropping our own tables on uninstall.
-	$wpdb->query( "DROP TABLE IF EXISTS {$wpdb->prefix}aipd_jobs" );
-	$wpdb->query( "DROP TABLE IF EXISTS {$wpdb->prefix}aipd_logs" );
+	// phpcs:disable WordPress.DB.DirectDatabaseQuery.DirectQuery, WordPress.DB.DirectDatabaseQuery.NoCaching, WordPress.DB.DirectDatabaseQuery.SchemaChange -- Dropping our own tables on uninstall.
+	$wpdb->query( $wpdb->prepare( 'DROP TABLE IF EXISTS %i', $wpdb->prefix . 'aipd_jobs' ) );
+	$wpdb->query( $wpdb->prepare( 'DROP TABLE IF EXISTS %i', $wpdb->prefix . 'aipd_logs' ) );
 	// phpcs:enable
 
 	// Options.

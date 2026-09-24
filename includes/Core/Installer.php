@@ -62,7 +62,12 @@ final class Installer {
 		Capabilities::add_to_roles();
 
 		if ( false === get_option( Options::SETTINGS ) ) {
-			add_option( Options::SETTINGS, Options::default_settings(), '', true );
+			$defaults = Options::default_settings();
+			// On WordPress 7.0+, default to the core AI Client so no third-party service is preferred.
+			if ( function_exists( 'wp_ai_client_prompt' ) ) {
+				$defaults['active_provider'] = 'wp_ai_client';
+			}
+			add_option( Options::SETTINGS, $defaults, '', true );
 		}
 
 		if ( ! wp_next_scheduled( self::CRON_CLEANUP ) ) {

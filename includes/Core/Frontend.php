@@ -24,6 +24,24 @@ final class Frontend {
 	 */
 	public static function init() {
 		add_action( 'wp_enqueue_scripts', array( __CLASS__, 'enqueue' ) );
+		// Also style the block editor canvas, so direction and cards match the front end.
+		add_action( 'enqueue_block_assets', array( __CLASS__, 'enqueue_editor' ) );
+	}
+
+	/**
+	 * Adds the page CSS inside the block editor when editing a generated post.
+	 *
+	 * @return void
+	 */
+	public static function enqueue_editor() {
+		if ( ! is_admin() ) {
+			return;
+		}
+		$post = get_post();
+		if ( ! $post || ! current_user_can( 'edit_post', $post->ID ) ) {
+			return;
+		}
+		self::add_css( $post->ID );
 	}
 
 	/**
@@ -35,7 +53,16 @@ final class Frontend {
 		if ( ! is_singular() ) {
 			return;
 		}
-		$post_id = get_queried_object_id();
+		self::add_css( get_queried_object_id() );
+	}
+
+	/**
+	 * Registers the inline stylesheet for a generated post.
+	 *
+	 * @param int $post_id Post id.
+	 * @return void
+	 */
+	private static function add_css( $post_id ) {
 		if ( ! $post_id || '1' !== get_post_meta( $post_id, AbstractAdapter::META_GENERATED, true ) ) {
 			return;
 		}

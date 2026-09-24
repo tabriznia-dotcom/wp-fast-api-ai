@@ -84,8 +84,8 @@ final class JobRepository {
 	public static function get( $uuid ) {
 		global $wpdb;
 		$table = self::table();
-		// phpcs:ignore WordPress.DB.DirectDatabaseQuery.DirectQuery, WordPress.DB.DirectDatabaseQuery.NoCaching, WordPress.DB.PreparedSQL.InterpolatedNotPrepared -- Custom table; name is not user input.
-		$row = $wpdb->get_row( $wpdb->prepare( "SELECT * FROM {$table} WHERE uuid = %s", $uuid ), ARRAY_A );
+		// phpcs:ignore WordPress.DB.DirectDatabaseQuery.DirectQuery, WordPress.DB.DirectDatabaseQuery.NoCaching -- Custom table.
+		$row = $wpdb->get_row( $wpdb->prepare( 'SELECT * FROM %i WHERE uuid = %s', $table, $uuid ), ARRAY_A );
 		return is_array( $row ) ? $row : null;
 	}
 
@@ -98,8 +98,8 @@ final class JobRepository {
 	public static function claim( $uuid ) {
 		global $wpdb;
 		$table = self::table();
-		// phpcs:ignore WordPress.DB.DirectDatabaseQuery.DirectQuery, WordPress.DB.DirectDatabaseQuery.NoCaching, WordPress.DB.PreparedSQL.InterpolatedNotPrepared -- Custom table.
-		$updated = $wpdb->query( $wpdb->prepare( "UPDATE {$table} SET status = 'running', attempts = attempts + 1, updated_at = %s WHERE uuid = %s AND status = 'queued'", current_time( 'mysql', true ), $uuid ) );
+		// phpcs:ignore WordPress.DB.DirectDatabaseQuery.DirectQuery, WordPress.DB.DirectDatabaseQuery.NoCaching -- Custom table.
+		$updated = $wpdb->query( $wpdb->prepare( "UPDATE %i SET status = 'running', attempts = attempts + 1, updated_at = %s WHERE uuid = %s AND status = 'queued'", $table, current_time( 'mysql', true ), $uuid ) );
 		return 1 === (int) $updated;
 	}
 
@@ -176,8 +176,8 @@ final class JobRepository {
 	public static function strip_payload( $uuid ) {
 		global $wpdb;
 		$table = self::table();
-		// phpcs:ignore WordPress.DB.DirectDatabaseQuery.DirectQuery, WordPress.DB.DirectDatabaseQuery.NoCaching, WordPress.DB.PreparedSQL.InterpolatedNotPrepared -- Custom table.
-		$wpdb->query( $wpdb->prepare( "UPDATE {$table} SET input = NULL, result = NULL, title = '' WHERE uuid = %s AND status IN ('completed','failed')", $uuid ) );
+		// phpcs:ignore WordPress.DB.DirectDatabaseQuery.DirectQuery, WordPress.DB.DirectDatabaseQuery.NoCaching -- Custom table.
+		$wpdb->query( $wpdb->prepare( "UPDATE %i SET input = NULL, result = NULL, title = '' WHERE uuid = %s AND status IN ('completed','failed')", $table, $uuid ) );
 	}
 
 	/**
@@ -189,8 +189,8 @@ final class JobRepository {
 		global $wpdb;
 		$table  = self::table();
 		$cutoff = gmdate( 'Y-m-d H:i:s', time() - self::STALE_MINUTES * MINUTE_IN_SECONDS );
-		// phpcs:ignore WordPress.DB.DirectDatabaseQuery.DirectQuery, WordPress.DB.DirectDatabaseQuery.NoCaching, WordPress.DB.PreparedSQL.InterpolatedNotPrepared -- Custom table.
-		return (int) $wpdb->query( $wpdb->prepare( "UPDATE {$table} SET status = 'failed', error_code = 'aipd_interrupted', error_message = %s, updated_at = %s WHERE status = 'running' AND updated_at < %s", __( 'The generation was interrupted before it finished. Please try again.', 'ai-page-designer' ), current_time( 'mysql', true ), $cutoff ) );
+		// phpcs:ignore WordPress.DB.DirectDatabaseQuery.DirectQuery, WordPress.DB.DirectDatabaseQuery.NoCaching -- Custom table.
+		return (int) $wpdb->query( $wpdb->prepare( "UPDATE %i SET status = 'failed', error_code = 'aipd_interrupted', error_message = %s, updated_at = %s WHERE status = 'running' AND updated_at < %s", $table, __( 'The generation was interrupted before it finished. Please try again.', 'ai-page-designer' ), current_time( 'mysql', true ), $cutoff ) );
 	}
 
 	/**
@@ -206,15 +206,14 @@ final class JobRepository {
 		$table    = self::table();
 		$per_page = max( 1, min( 100, (int) $per_page ) );
 		$offset   = ( max( 1, (int) $page ) - 1 ) * $per_page;
-		$columns  = 'id, uuid, user_id, type, status, provider, model, builder, title, error_code, error_message, tokens_in, tokens_out, post_id, created_at, updated_at';
 
-		// phpcs:disable WordPress.DB.DirectDatabaseQuery.DirectQuery, WordPress.DB.DirectDatabaseQuery.NoCaching, WordPress.DB.PreparedSQL.InterpolatedNotPrepared -- Custom table; column list is a constant.
+		// phpcs:disable WordPress.DB.DirectDatabaseQuery.DirectQuery, WordPress.DB.DirectDatabaseQuery.NoCaching -- Custom table.
 		if ( $user_id > 0 ) {
-			$items = $wpdb->get_results( $wpdb->prepare( "SELECT {$columns} FROM {$table} WHERE user_id = %d ORDER BY id DESC LIMIT %d OFFSET %d", $user_id, $per_page, $offset ), ARRAY_A );
-			$total = (int) $wpdb->get_var( $wpdb->prepare( "SELECT COUNT(*) FROM {$table} WHERE user_id = %d", $user_id ) );
+			$items = $wpdb->get_results( $wpdb->prepare( 'SELECT id, uuid, user_id, type, status, provider, model, builder, title, error_code, error_message, tokens_in, tokens_out, post_id, created_at, updated_at FROM %i WHERE user_id = %d ORDER BY id DESC LIMIT %d OFFSET %d', $table, $user_id, $per_page, $offset ), ARRAY_A );
+			$total = (int) $wpdb->get_var( $wpdb->prepare( 'SELECT COUNT(*) FROM %i WHERE user_id = %d', $table, $user_id ) );
 		} else {
-			$items = $wpdb->get_results( $wpdb->prepare( "SELECT {$columns} FROM {$table} ORDER BY id DESC LIMIT %d OFFSET %d", $per_page, $offset ), ARRAY_A );
-			$total = (int) $wpdb->get_var( "SELECT COUNT(*) FROM {$table}" );
+			$items = $wpdb->get_results( $wpdb->prepare( 'SELECT id, uuid, user_id, type, status, provider, model, builder, title, error_code, error_message, tokens_in, tokens_out, post_id, created_at, updated_at FROM %i ORDER BY id DESC LIMIT %d OFFSET %d', $table, $per_page, $offset ), ARRAY_A );
+			$total = (int) $wpdb->get_var( $wpdb->prepare( 'SELECT COUNT(*) FROM %i', $table ) );
 		}
 		// phpcs:enable
 
@@ -246,8 +245,8 @@ final class JobRepository {
 		$table = self::table();
 		$days  = Options::get( 'history_enabled' ) ? (int) Options::get( 'retention_days' ) : 1;
 		$cut   = gmdate( 'Y-m-d H:i:s', time() - max( 1, $days ) * DAY_IN_SECONDS );
-		// phpcs:ignore WordPress.DB.DirectDatabaseQuery.DirectQuery, WordPress.DB.DirectDatabaseQuery.NoCaching, WordPress.DB.PreparedSQL.InterpolatedNotPrepared -- Custom table.
-		return (int) $wpdb->query( $wpdb->prepare( "DELETE FROM {$table} WHERE created_at < %s", $cut ) );
+		// phpcs:ignore WordPress.DB.DirectDatabaseQuery.DirectQuery, WordPress.DB.DirectDatabaseQuery.NoCaching -- Custom table.
+		return (int) $wpdb->query( $wpdb->prepare( 'DELETE FROM %i WHERE created_at < %s', $table, $cut ) );
 	}
 
 	/**
@@ -261,8 +260,8 @@ final class JobRepository {
 	public static function for_user( $user_id, $limit, $offset ) {
 		global $wpdb;
 		$table = self::table();
-		// phpcs:ignore WordPress.DB.DirectDatabaseQuery.DirectQuery, WordPress.DB.DirectDatabaseQuery.NoCaching, WordPress.DB.PreparedSQL.InterpolatedNotPrepared -- Custom table.
-		$rows = $wpdb->get_results( $wpdb->prepare( "SELECT uuid, type, status, title, input, created_at FROM {$table} WHERE user_id = %d ORDER BY id ASC LIMIT %d OFFSET %d", $user_id, $limit, $offset ), ARRAY_A );
+		// phpcs:ignore WordPress.DB.DirectDatabaseQuery.DirectQuery, WordPress.DB.DirectDatabaseQuery.NoCaching -- Custom table.
+		$rows = $wpdb->get_results( $wpdb->prepare( 'SELECT uuid, type, status, title, input, created_at FROM %i WHERE user_id = %d ORDER BY id ASC LIMIT %d OFFSET %d', $table, $user_id, $limit, $offset ), ARRAY_A );
 		return is_array( $rows ) ? $rows : array();
 	}
 

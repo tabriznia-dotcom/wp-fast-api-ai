@@ -92,3 +92,11 @@ add_action(
 		}
 	}
 );
+
+// Repeated local E2E runs must not hit the per-user hourly limit.
+add_filter(
+	'aipd_rate_limit_per_hour',
+	static function () {
+		return 10000;
+	}
+);

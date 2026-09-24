@@ -134,7 +134,8 @@ final class Admin {
 						'templateId'  => isset( $_GET['template'] ) ? sanitize_text_field( wp_unslash( $_GET['template'] ) ) : '', // phpcs:ignore WordPress.Security.NonceVerification.Recommended -- Read-only preselection.
 						'postId'      => isset( $_GET['post'] ) ? absint( $_GET['post'] ) : 0, // phpcs:ignore WordPress.Security.NonceVerification.Recommended -- Read-only preselection.
 						'isRtl'       => is_rtl(),
-					)
+					),
+					JSON_HEX_TAG | JSON_HEX_AMP | JSON_HEX_QUOT | JSON_HEX_APOS
 				) . ';',
 				'before'
 			);

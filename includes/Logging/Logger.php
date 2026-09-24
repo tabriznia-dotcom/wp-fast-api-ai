@@ -110,13 +110,13 @@ final class Logger {
 		$per_page = max( 1, min( 100, (int) $per_page ) );
 		$offset   = ( max( 1, (int) $page ) - 1 ) * $per_page;
 
-		// phpcs:disable WordPress.DB.DirectDatabaseQuery.DirectQuery, WordPress.DB.DirectDatabaseQuery.NoCaching, WordPress.DB.PreparedSQL.InterpolatedNotPrepared -- Custom table; table name is not user input.
+		// phpcs:disable WordPress.DB.DirectDatabaseQuery.DirectQuery, WordPress.DB.DirectDatabaseQuery.NoCaching -- Custom table.
 		if ( isset( self::LEVELS[ $level ] ) ) {
-			$items = $wpdb->get_results( $wpdb->prepare( "SELECT id, level, event, message, context, user_id, created_at FROM {$tables['logs']} WHERE level = %s ORDER BY id DESC LIMIT %d OFFSET %d", $level, $per_page, $offset ), ARRAY_A );
-			$total = (int) $wpdb->get_var( $wpdb->prepare( "SELECT COUNT(*) FROM {$tables['logs']} WHERE level = %s", $level ) );
+			$items = $wpdb->get_results( $wpdb->prepare( 'SELECT id, level, event, message, context, user_id, created_at FROM %i WHERE level = %s ORDER BY id DESC LIMIT %d OFFSET %d', $tables['logs'], $level, $per_page, $offset ), ARRAY_A );
+			$total = (int) $wpdb->get_var( $wpdb->prepare( 'SELECT COUNT(*) FROM %i WHERE level = %s', $tables['logs'], $level ) );
 		} else {
-			$items = $wpdb->get_results( $wpdb->prepare( "SELECT id, level, event, message, context, user_id, created_at FROM {$tables['logs']} ORDER BY id DESC LIMIT %d OFFSET %d", $per_page, $offset ), ARRAY_A );
-			$total = (int) $wpdb->get_var( "SELECT COUNT(*) FROM {$tables['logs']}" );
+			$items = $wpdb->get_results( $wpdb->prepare( 'SELECT id, level, event, message, context, user_id, created_at FROM %i ORDER BY id DESC LIMIT %d OFFSET %d', $tables['logs'], $per_page, $offset ), ARRAY_A );
+			$total = (int) $wpdb->get_var( $wpdb->prepare( 'SELECT COUNT(*) FROM %i', $tables['logs'] ) );
 		}
 		// phpcs:enable
 
@@ -136,8 +136,8 @@ final class Logger {
 		global $wpdb;
 		$tables = Installer::tables();
 		$cutoff = gmdate( 'Y-m-d H:i:s', time() - max( 1, (int) $days ) * DAY_IN_SECONDS );
-		// phpcs:ignore WordPress.DB.DirectDatabaseQuery.DirectQuery, WordPress.DB.DirectDatabaseQuery.NoCaching, WordPress.DB.PreparedSQL.InterpolatedNotPrepared -- Custom table.
-		return (int) $wpdb->query( $wpdb->prepare( "DELETE FROM {$tables['logs']} WHERE created_at < %s", $cutoff ) );
+		// phpcs:ignore WordPress.DB.DirectDatabaseQuery.DirectQuery, WordPress.DB.DirectDatabaseQuery.NoCaching -- Custom table.
+		return (int) $wpdb->query( $wpdb->prepare( 'DELETE FROM %i WHERE created_at < %s', $tables['logs'], $cutoff ) );
 	}
 
 	/**
@@ -148,8 +148,8 @@ final class Logger {
 	public static function clear() {
 		global $wpdb;
 		$tables = Installer::tables();
-		// phpcs:ignore WordPress.DB.DirectDatabaseQuery.DirectQuery, WordPress.DB.DirectDatabaseQuery.NoCaching, WordPress.DB.PreparedSQL.InterpolatedNotPrepared -- Custom table.
-		$wpdb->query( "DELETE FROM {$tables['logs']}" );
+		// phpcs:ignore WordPress.DB.DirectDatabaseQuery.DirectQuery, WordPress.DB.DirectDatabaseQuery.NoCaching -- Custom table.
+		$wpdb->query( $wpdb->prepare( 'DELETE FROM %i', $tables['logs'] ) );
 	}
 
 	/**
@@ -163,8 +163,8 @@ final class Logger {
 	public static function for_user( $user_id, $limit = 100, $offset = 0 ) {
 		global $wpdb;
 		$tables = Installer::tables();
-		// phpcs:ignore WordPress.DB.DirectDatabaseQuery.DirectQuery, WordPress.DB.DirectDatabaseQuery.NoCaching, WordPress.DB.PreparedSQL.InterpolatedNotPrepared -- Custom table.
-		$rows = $wpdb->get_results( $wpdb->prepare( "SELECT id, level, event, message, created_at FROM {$tables['logs']} WHERE user_id = %d ORDER BY id ASC LIMIT %d OFFSET %d", $user_id, $limit, $offset ), ARRAY_A );
+		// phpcs:ignore WordPress.DB.DirectDatabaseQuery.DirectQuery, WordPress.DB.DirectDatabaseQuery.NoCaching -- Custom table.
+		$rows = $wpdb->get_results( $wpdb->prepare( 'SELECT id, level, event, message, created_at FROM %i WHERE user_id = %d ORDER BY id ASC LIMIT %d OFFSET %d', $tables['logs'], $user_id, $limit, $offset ), ARRAY_A );
 		return is_array( $rows ) ? $rows : array();
 	}
 

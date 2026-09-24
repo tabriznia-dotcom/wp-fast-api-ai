@@ -59,8 +59,8 @@ class OpenAICompatibleProvider extends AbstractProvider {
 				'id'          => 'api_url',
 				'label'       => __( 'API base URL', 'ai-page-designer' ),
 				'type'        => 'url',
-				'default'     => 'https://api.openai.com/v1',
-				'description' => __( 'The base URL, without /chat/completions. HTTPS is required.', 'ai-page-designer' ),
+				'default'     => '',
+				'description' => __( 'The base URL of your provider, without /chat/completions, for example https://api.openai.com/v1. HTTPS is required.', 'ai-page-designer' ),
 			),
 			array(
 				'id'          => 'api_key',

@@ -1,5 +1,3 @@
-# Copyright (C) 2026 AI Page Designer contributors
-# This file is distributed under the GPL-2.0-or-later.
 msgid ""
 msgstr ""
 "Project-Id-Version: AI Page Designer 1.0.0\n"
@@ -7,12 +5,12 @@ msgstr ""
 "Last-Translator: FULL NAME <EMAIL@ADDRESS>\n"
 "Language-Team: LANGUAGE <LL@li.org>\n"
 "MIME-Version: 1.0\n"
-"Plural-Forms: nplurals=1; plural=0;\n"
-"Language: fa_IR\n"
 "Content-Type: text/plain; charset=UTF-8\n"
 "Content-Transfer-Encoding: 8bit\n"
 "POT-Creation-Date: 2026-09-24T08:13:07+00:00\n"
-"PO-Revision-Date: YEAR-MO-DA HO:MI+ZONE\n"
+"PO-Revision-Date: 2026-09-24T08:30:17+00:00\n"
+"Language: fa_IR\n"
+"Plural-Forms: nplurals=1; plural=0;\n"
 "X-Generator: WP-CLI 2.12.0\n"
 "X-Domain: ai-page-designer\n"
 
@@ -853,8 +851,8 @@ msgid "API base URL"
 msgstr "نشانی پایه API"
 
 #: includes/AI/Providers/OpenAICompatibleProvider.php:63
-msgid "The base URL, without /chat/completions. HTTPS is required."
-msgstr "نشانی پایه، بدون ‎/chat/completions. استفاده از HTTPS الزامی است."
+msgid "The base URL of your provider, without /chat/completions, for example https://api.openai.com/v1. HTTPS is required."
+msgstr "نشانی پایه ارائه‌دهنده شما، بدون ‎/chat/completions، برای مثال https://api.openai.com/v1. استفاده از HTTPS الزامی است."
 
 #: includes/AI/Providers/OpenAICompatibleProvider.php:67
 msgid "API key"
@@ -1054,15 +1052,15 @@ msgstr "شما به این درخواست دسترسی ندارید."
 msgid "The generation was interrupted before it finished. Please try again."
 msgstr "فرایند تولید پیش از پایان متوقف شد. لطفاً دوباره تلاش کنید."
 
-#: includes/Jobs/JobRunner.php:98
+#: includes/Jobs/JobRunner.php:95
 msgid "The job data is invalid."
 msgstr "داده‌های این کار نامعتبر است."
 
-#: includes/Jobs/JobRunner.php:137
+#: includes/Jobs/JobRunner.php:134
 msgid "The AI provider is not configured. No request was sent."
 msgstr "ارائه‌دهنده هوش مصنوعی پیکربندی نشده است. هیچ درخواستی ارسال نشد."
 
-#: includes/Jobs/JobRunner.php:166
+#: includes/Jobs/JobRunner.php:163
 msgid "Unknown job type."
 msgstr "نوع کار ناشناخته است."
 
@@ -1779,29 +1777,29 @@ msgstr "استفاده از این قالب"
 msgid "Wizard steps"
 msgstr "مراحل دستیار"
 
-#: src/wizard/components.js:135
+#: src/wizard/components.js:138
 msgid "Technical details"
 msgstr "جزئیات فنی"
 
-#: src/wizard/components.js:146
+#: src/wizard/components.js:149
 msgid "Try again"
 msgstr "تلاش دوباره"
 
-#: src/wizard/components.js:167
+#: src/wizard/components.js:170
 msgid "Send this request?"
 msgstr "این درخواست ارسال شود؟"
 
 #. translators: 1: what is generated, 2: service name.
-#: src/wizard/components.js:174
+#: src/wizard/components.js:177
 #, js-format
 msgid "To create the %1$s, your brief will be sent to %2$s. This request may be billed by your AI provider."
 msgstr "برای ساخت %1$s، توضیحات شما به %2$s ارسال می‌شود. ممکن است ارائه‌دهنده هوش مصنوعی برای این درخواست هزینه دریافت کند."
 
-#: src/wizard/components.js:187
+#: src/wizard/components.js:190
 msgid "Cancel"
 msgstr "لغو"
 
-#: src/wizard/components.js:190
+#: src/wizard/components.js:193
 msgid "Send request"
 msgstr "ارسال درخواست"
 

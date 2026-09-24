@@ -50,6 +50,7 @@ tests_add_filter(
 
 require $aipd_tests_dir . '/includes/bootstrap.php';
 require __DIR__ . '/TestCase.php';
+require __DIR__ . '/Fixtures.php';
 
 if ( did_action( 'elementor/loaded' ) ) {
 	// Elementor normally creates its default Kit on activation, and caches element

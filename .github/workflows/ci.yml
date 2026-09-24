@@ -1,0 +1,102 @@
+name: CI
+
+on:
+  push:
+    branches: [ main, 'prodev/**' ]
+  pull_request:
+
+permissions:
+  contents: read
+
+jobs:
+  php-lint:
+    name: PHPCS and PHP compatibility
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v4
+      - uses: shivammathur/setup-php@v2
+        with:
+          php-version: '8.3'
+          tools: composer:v2
+      - run: composer install --no-interaction --no-progress
+      - run: composer lint
+      - run: composer compat
+
+  php-syntax-74:
+    name: PHP 7.4 syntax
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v4
+      - uses: shivammathur/setup-php@v2
+        with:
+          php-version: '7.4'
+      - run: find includes ai-page-designer.php uninstall.php -name '*.php' -print0 | xargs -0 -n1 php -l
+
+  phpunit:
+    name: PHPUnit (WP ${{ matrix.wp }}, PHP ${{ matrix.php }}, multisite ${{ matrix.multisite }})
+    runs-on: ubuntu-latest
+    strategy:
+      fail-fast: false
+      matrix:
+        include:
+          - { wp: '6.6.2', php: '8.1', multisite: '0' }
+          - { wp: '7.1.2', php: '8.3', multisite: '0' }
+          - { wp: '7.1.2', php: '8.3', multisite: '1' }
+    steps:
+      - uses: actions/checkout@v4
+      - uses: shivammathur/setup-php@v2
+        with:
+          php-version: ${{ matrix.php }}
+          extensions: sqlite3, pdo_sqlite, sodium
+          tools: composer:v2
+      - run: composer install --no-interaction --no-progress
+      - run: bash bin/install-wp-tests.sh ${{ matrix.wp }} /tmp/aipd-wp sqlite
+      - name: Run tests
+        env:
+          WP_TESTS_DIR: /tmp/aipd-wp/wordpress-develop/tests/phpunit
+          WP_TESTS_CONFIG_FILE_PATH: /tmp/aipd-wp/wp-tests-config.php
+          WP_MULTISITE: ${{ matrix.multisite }}
+        run: vendor/bin/phpunit
+      - uses: actions/upload-artifact@v4
+        if: matrix.multisite == '0'
+        with:
+          name: block-fixtures-${{ matrix.wp }}
+          path: tests/fixtures/*.html
+
+  elementor:
+    name: Elementor integration
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v4
+      - uses: shivammathur/setup-php@v2
+        with:
+          php-version: '8.3'
+          extensions: sqlite3, pdo_sqlite, sodium
+          tools: composer:v2
+      - run: composer install --no-interaction --no-progress
+      - run: bash bin/install-wp-tests.sh 7.1.2 /tmp/aipd-wp sqlite
+      - run: git clone --depth 1 https://github.com/elementor/elementor.git /tmp/elementor
+      - env:
+          WP_TESTS_DIR: /tmp/aipd-wp/wordpress-develop/tests/phpunit
+          WP_TESTS_CONFIG_FILE_PATH: /tmp/aipd-wp/wp-tests-config.php
+          AIPD_TEST_ELEMENTOR_DIR: /tmp/elementor
+        run: vendor/bin/phpunit --group elementor
+
+  js:
+    name: JS lint, build and block validation
+    runs-on: ubuntu-latest
+    needs: phpunit
+    steps:
+      - uses: actions/checkout@v4
+      - uses: actions/setup-node@v4
+        with:
+          node-version: 22
+          cache: npm
+      - run: npm ci
+      - run: npm run lint:js
+      - run: npm run build
+      - uses: actions/download-artifact@v4
+        with:
+          name: block-fixtures-7.1.2
+          path: tests/fixtures
+      - run: npm run test:blocks
