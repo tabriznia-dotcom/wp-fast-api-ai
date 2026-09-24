@@ -48,7 +48,7 @@ End-to-end tests: `bash bin/e2e-setup.sh` (starts a local site on port 8889) and
 | [docs/privacy.md](docs/privacy.md) | Stored and transmitted data, privacy tools |
 | [docs/translation-and-rtl.md](docs/translation-and-rtl.md) | Translation workflow and RTL behavior |
 | [docs/development.md](docs/development.md) | Tooling, tests, build and release |
-| [docs/qa-report.md](docs/qa-report.md) | Test results for 1.0.0 |
+| [docs/qa-report.md](docs/qa-report.md) | Test results for 1.1.0 |
 | [docs/wordpress-org-checklist.md](docs/wordpress-org-checklist.md) | Submission checklist |
 | [readme.txt](readme.txt) | WordPress.org readme (including External services) |
 | [CHANGELOG.md](CHANGELOG.md) | Release notes |
