@@ -19,6 +19,7 @@ flowchart LR
     PR["ProviderRegistry"]
     P1["OpenAICompatibleProvider"]
     P2["WPAIClientProvider<br/>(WP 7.0+ AI Client)"]
+    P3["OpenCodeProvider<br/>(Zen / Go: chat, responses,<br/>messages, gemini formats)"]
     SCH["Schema: Sanitizer → Validator → Normalizer"]
     AR["AdapterRegistry"]
     G["GutenbergAdapter<br/>BlockSerializer"]
@@ -35,8 +36,9 @@ flowchart LR
 
   W -- "REST + wp_rest nonce" --> REST
   S -- "POST + nonce" --> ACT
-  REST --> AIS --> PR --> P1 & P2
+  REST --> AIS --> PR --> P1 & P2 & P3
   P1 -- "wp_safe_remote_request (HTTPS)" --> EXT
+  P3 -- "wp_safe_remote_request (HTTPS)" --> EXT
   P2 -- "wp_ai_client_prompt()" --> EXT
   REST --> JOB --> AIS
   AIS --> SCH
@@ -65,7 +67,7 @@ ai-page-designer/
 │   ├── AI/
 │   │   ├── Contracts/            ProviderInterface
 │   │   ├── DTO/                  Brief, CompletionRequest, CompletionResponse
-│   │   ├── Providers/            AbstractProvider, OpenAICompatibleProvider, WPAIClientProvider
+│   │   ├── Providers/            AbstractProvider, OpenAICompatibleProvider, OpenCodeProvider, WPAIClientProvider
 │   │   ├── AIService.php         Preflight + guarded send + outline/page/section flows
 │   │   ├── PromptBuilder.php     System prompts and data boundary
 │   │   ├── ProviderRegistry.php
@@ -222,7 +224,7 @@ See [page-builder-adapters.md](page-builder-adapters.md).
 | Data | Where | Notes |
 | --- | --- | --- |
 | General settings | option `aipd_settings` (autoload) | provider choice, cost confirmation, rate limit, logging, retention, consent, uninstall choice |
-| Provider settings | option `aipd_provider_settings` (not autoloaded) | API keys encrypted with libsodium (`aipd1:` prefix); key derived from WordPress salts or `AIPD_ENCRYPTION_KEY` |
+| Provider settings (OpenAI-compatible, OpenCode, WP AI Client) | option `aipd_provider_settings` (not autoloaded) | API keys encrypted with libsodium (`aipd1:` prefix); key derived from WordPress salts or `AIPD_ENCRYPTION_KEY` |
 | Brand kit | option `aipd_brand_kit` (not autoloaded) | colors, fonts, style, tone, default language, logo attachment |
 | Jobs / history | table `{prefix}aipd_jobs` | uuid (idempotency key), user, type, status, brief, result, error, token usage, linked post. Brief and result are removed right after delivery when history is disabled |
 | Logs | table `{prefix}aipd_logs` | level, event code, redacted message and context. Never prompts, output or keys |

@@ -23,6 +23,10 @@ Only when a permitted user explicitly requests a generation (and confirms paid r
 
 Site content, users, orders, comments or other data are never sent automatically.
 
+## OpenCode free models
+
+OpenCode documents that some free models may use submitted data to improve the model. The OpenCode provider refuses those models unless an administrator enables "Allow free models that may use data for training". Zero-retention free models (currently `space-bunny-free`) are allowed; the list can be changed with the `aipd_opencode_zero_retention_free_models` filter.
+
 ## WordPress privacy tools
 
 * **Privacy policy guide**: suggested text is registered with `wp_add_privacy_policy_content()` (Settings > Privacy > Policy Guide).

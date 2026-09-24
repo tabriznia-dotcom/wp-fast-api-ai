@@ -15,7 +15,7 @@ The AI never writes HTML or code directly. It fills a strictly validated **Page 
 * **Block editor first**: only core blocks, verified to load without invalid blocks in the real WordPress 6.6 and 7.1 editors; content stays editable if the plugin is deactivated.
 * **Elementor** adapter through Elementor's public Documents API (containers or sections; Pro widgets only when Elementor Pro is active; no fatal error without Elementor).
 * **Classic/HTML** adapter for every other theme or builder.
-* **Providers**: any OpenAI-compatible Chat Completions API, or the WordPress 7.0+ AI Client (Connectors). Add more with one interface.
+* **Providers**: OpenCode Zen / Go (one key for GPT, Claude, Gemini, Qwen, DeepSeek, GLM, Kimi…; native API format per model), any OpenAI-compatible Chat Completions API, or the WordPress 7.0+ AI Client (Connectors). Add more with one interface.
 * **Accessibility**: single H1, heading order, WCAG AA contrast repair, alt text checks, keyboard-operable admin, axe-tested.
 * **Multilingual/RTL**: content language independent of admin language; real mirrored RTL layouts; WPML/Polylang language assignment.
 * **Security/privacy**: encrypted keys, SSRF protection, strict allowlists, shortcode neutralization, consent, per-request cost confirmation, rate limits, retention, exporter/eraser, opt-in uninstall cleanup. No tracking.

@@ -4,7 +4,7 @@ Tags: ai, page builder, landing page, block editor, rtl
 Requires at least: 6.6
 Tested up to: 7.1
 Requires PHP: 7.4
-Stable tag: 1.0.0
+Stable tag: 1.1.0
 License: GPLv2 or later
 License URI: https://www.gnu.org/licenses/gpl-2.0.html
 
@@ -27,7 +27,7 @@ Describe your business, audience, goal and call to action. The plugin asks the A
 * **Design tokens and Brand Kit**: colors, fonts, radius, shadows, spacing and container width, with seven style presets (Corporate, Minimal, Creative, Luxury, SaaS, E-commerce, Editorial). No font files are downloaded.
 * **Regenerate a single section** and apply it to an existing draft. Previous versions stay available in WordPress revisions.
 * **Templates**: start from built-in English (LTR) and Persian (RTL) landing page templates without any AI request, save your own, and import/export them as validated JSON.
-* **Your choice of AI service**: any OpenAI-compatible Chat Completions API, or the AI services connected in WordPress 7.0+ under Settings > Connectors. Developers can add providers without changing the plugin.
+* **Your choice of AI service**: OpenCode Zen or OpenCode Go (GPT, Claude, Gemini, Qwen, DeepSeek, GLM, Kimi and more with one key), any OpenAI-compatible Chat Completions API, or the AI services connected in WordPress 7.0+ under Settings > Connectors. Developers can add providers without changing the plugin.
 
 = Security and privacy =
 
@@ -50,6 +50,14 @@ This plugin connects to an external AI service **only after an administrator con
 * **Where it is sent:** the API base URL entered by the administrator (for example `https://api.openai.com/v1`), to the `/chat/completions` endpoint. "Test connection" calls `/models`.
 * **Terms and privacy:** these depend on the service you choose. If you use OpenAI: [Terms of use](https://openai.com/policies/terms-of-use/), [Privacy policy](https://openai.com/policies/privacy-policy/). For other providers, see their own terms and privacy policy before connecting.
 
+= OpenCode Zen / OpenCode Go (configured by the site administrator) =
+
+* **What it is used for:** generating the page structure, page content and regenerated sections with the model the administrator selects.
+* **What is sent and when:** the same brief data described above, only when a permitted user clicks a generation button (and confirms the request on the pay-as-you-go Zen plan). The API key is sent in the `Authorization`, `x-api-key` or `x-goog-api-key` header depending on the model family.
+* **Where it is sent:** `https://opencode.ai/zen/v1` (Zen) or `https://opencode.ai/zen/go/v1` (Go), to `/chat/completions`, `/responses`, `/messages` or `/models/{model}:generateContent`. "Test connection" calls `/models`. OpenCode forwards requests to the provider of the selected model.
+* **Data use:** free models that OpenCode documents as possibly using data for training are blocked unless the administrator explicitly allows them.
+* **Terms and privacy:** [OpenCode Terms of Service](https://opencode.ai/legal/terms-of-service), [OpenCode Privacy Policy](https://opencode.ai/legal/privacy-policy).
+
 = WordPress AI Client (WordPress 7.0 or newer) =
 
 If you select "WordPress AI Client (Connectors)", requests are sent through WordPress core to the AI service connected under Settings > Connectors. The same brief data described above is sent, under the terms and privacy policy of that connected service. API keys for those services are managed by WordPress core and are never seen by this plugin.
@@ -58,7 +66,7 @@ If you select "WordPress AI Client (Connectors)", requests are sent through Word
 
 1. Install the plugin from the Plugins screen, or upload the `ai-page-designer` folder to `/wp-content/plugins/`, and activate it.
 2. Go to **AI Page Designer > Privacy**, review what is sent to the AI service, and accept the notice.
-3. Go to **AI Page Designer > AI Providers**. Enter the API base URL, API key and model of an OpenAI-compatible service (or choose the WordPress AI Client on WordPress 7.0+). Click **Test connection**.
+3. Go to **AI Page Designer > AI Providers**. Configure OpenCode (Zen or Go: API key and model), an OpenAI-compatible service (API base URL, API key and model), or choose the WordPress AI Client on WordPress 7.0+. Click **Test connection**.
 4. Optional: set your colors, fonts and tone in **Brand Kit**.
 5. Open **AI Page Designer > New Page** and follow the steps.
 
@@ -109,10 +117,18 @@ The readable source is included in the `src/` folder. The compiled files in `bui
 
 == Changelog ==
 
+= 1.1.0 =
+* New: OpenCode Zen and OpenCode Go provider. One API key for GPT, Claude, Gemini, Qwen, DeepSeek, GLM, Kimi and other models; each model is called through its native API format (Chat Completions, Responses, Anthropic Messages or Gemini) automatically.
+* New: free models that may use data for training are blocked unless explicitly allowed.
+* Security: provider error messages are scrubbed of the configured API key whatever its format.
+
 = 1.0.0 =
 * Initial release: page wizard, Page Schema validation, OpenAI-compatible and WordPress AI Client providers, block editor, Elementor and classic adapters, Brand Kit, templates with import/export, generation history, logs, privacy tools, English and Persian translations, RTL support.
 
 == Upgrade Notice ==
+
+= 1.1.0 =
+Adds OpenCode Zen / Go as an AI provider.
 
 = 1.0.0 =
 Initial release.

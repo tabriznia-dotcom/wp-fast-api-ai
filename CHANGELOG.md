@@ -2,6 +2,19 @@
 
 All notable changes to this project are documented here. The format follows [Keep a Changelog](https://keepachangelog.com/) and the project uses [Semantic Versioning](https://semver.org/).
 
+## [1.1.0] - 2026-09-24
+
+### Added
+
+* OpenCode Zen / OpenCode Go provider (`OpenCodeProvider`): plan selector, one API key for all model families, automatic API format per model (Chat Completions, OpenAI Responses, Anthropic Messages, Gemini generateContent) with the matching auth header, model list, OpenCode-specific error messages (credits, monthly limits, unavailable models, region and data policy).
+* Opt-in guard for free models that may use submitted data for training.
+* Hooks: `aipd_opencode_base_url`, `aipd_opencode_body`, `aipd_opencode_zero_retention_free_models`.
+* `select` fields on the AI Providers screen.
+
+### Security
+
+* Provider error text is scrubbed of the configured secret itself (not only known key patterns) before it is shown or logged.
+
 ## [1.0.0] - 2026-09-24
 
 ### Added

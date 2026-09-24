@@ -9,6 +9,7 @@ namespace AIPageDesigner\AI;
 
 use AIPageDesigner\AI\Contracts\ProviderInterface;
 use AIPageDesigner\AI\Providers\OpenAICompatibleProvider;
+use AIPageDesigner\AI\Providers\OpenCodeProvider;
 use AIPageDesigner\AI\Providers\WPAIClientProvider;
 use AIPageDesigner\Core\Options;
 
@@ -99,6 +100,7 @@ final class ProviderRegistry {
 		$this->loaded = true;
 
 		$this->register( new OpenAICompatibleProvider() );
+		$this->register( new OpenCodeProvider() );
 		$this->register( new WPAIClientProvider() );
 
 		/**

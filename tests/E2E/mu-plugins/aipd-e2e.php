@@ -11,6 +11,9 @@
 add_filter(
 	'aipd_resolve_host',
 	static function ( $ips, $host ) {
+		if ( 'opencode.ai' === $host ) {
+			return array( '104.21.32.1' );
+		}
 		return 'api.example.com' === $host ? array( '93.184.216.34' ) : $ips;
 	},
 	10,
@@ -20,7 +23,8 @@ add_filter(
 add_filter(
 	'pre_http_request',
 	static function ( $pre, $args, $url ) {
-		if ( 0 !== strpos( $url, 'https://api.example.com/v1' ) ) {
+		$opencode = 0 === strpos( $url, 'https://opencode.ai/zen/' );
+		if ( 0 !== strpos( $url, 'https://api.example.com/v1' ) && ! $opencode ) {
 			return $pre;
 		}
 		$reply = static function ( $data ) {
@@ -36,11 +40,22 @@ add_filter(
 			);
 		};
 		if ( '/models' === substr( $url, -7 ) ) {
-			return $reply( array( 'data' => array( array( 'id' => 'e2e-model' ) ) ) );
+			return $reply( array( 'data' => array( array( 'id' => $opencode ? 'claude-sonnet-5' : 'e2e-model' ), array( 'id' => 'glm-5.3' ) ) ) );
 		}
-		$body   = json_decode( $args['body'], true );
-		$system = $body['messages'][0]['content'];
-		$user   = $body['messages'][1]['content'];
+		$body = json_decode( $args['body'], true );
+		// OpenCode Messages format (Anthropic): system is top level, auth in x-api-key.
+		$is_messages = $opencode && '/messages' === substr( $url, -9 );
+		if ( $is_messages && empty( $args['headers']['x-api-key'] ) ) {
+			return array(
+				'headers'  => array(),
+				'body'     => wp_json_encode( array( 'type' => 'error', 'error' => array( 'type' => 'AuthError', 'message' => 'Missing API key.' ) ) ),
+				'response' => array( 'code' => 401, 'message' => 'Unauthorized' ),
+				'cookies'  => array(),
+				'filename' => null,
+			);
+		}
+		$system = $is_messages ? $body['system'] : $body['messages'][0]['content'];
+		$user   = $is_messages ? $body['messages'][0]['content'] : $body['messages'][1]['content'];
 		$rtl    = false !== strpos( $user, '"language": "fa' );
 		if ( false !== strpos( $system, 'propose the section structure' ) ) {
 			$content = array(
@@ -58,6 +73,16 @@ add_filter(
 				$content                                        = $content['sections'][0];
 				$content['columns'][0]['components'][0]['text'] = $rtl ? 'عنوان بازنویسی‌شده' : 'Rewritten hero title';
 			}
+		}
+		if ( $is_messages ) {
+			return $reply(
+				array(
+					'model'       => $body['model'],
+					'content'     => array( array( 'type' => 'text', 'text' => wp_json_encode( $content ) ) ),
+					'stop_reason' => 'end_turn',
+					'usage'       => array( 'input_tokens' => 10, 'output_tokens' => 20 ),
+				)
+			);
 		}
 		return $reply(
 			array(

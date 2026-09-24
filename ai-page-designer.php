@@ -3,7 +3,7 @@
  * Plugin Name:       AI Page Designer
  * Plugin URI:        https://github.com/tabriznia-dotcom/wp-fast-api-ai
  * Description:       Turn a written brief into a validated page schema and a draft page for the block editor, Elementor or classic HTML, using an AI provider you choose.
- * Version:           1.0.0
+ * Version:           1.1.0
  * Requires at least: 6.6
  * Requires PHP:      7.4
  * Author:            AI Page Designer contributors
@@ -17,7 +17,7 @@
 
 defined( 'ABSPATH' ) || exit;
 
-define( 'AIPD_VERSION', '1.0.0' );
+define( 'AIPD_VERSION', '1.1.0' );
 define( 'AIPD_DB_VERSION', '1' );
 define( 'AIPD_FILE', __FILE__ );
 define( 'AIPD_DIR', plugin_dir_path( __FILE__ ) );

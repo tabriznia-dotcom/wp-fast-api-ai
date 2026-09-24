@@ -25,7 +25,22 @@ Also copy the **Suggested privacy policy text** into your site's privacy policy 
 
 Open **AI Page Designer > AI Providers**.
 
-### Option A: an OpenAI-compatible API
+### Option A: OpenCode Zen or OpenCode Go
+
+[OpenCode Zen](https://opencode.ai) is a pay-as-you-go gateway to many models (GPT, Claude, Gemini, Qwen, DeepSeek, GLM, Kimi…) with one API key; OpenCode Go is a flat-rate subscription for a smaller set of models.
+
+| Field | Example | Notes |
+| --- | --- | --- |
+| Plan | OpenCode Zen | Zen uses `https://opencode.ai/zen/v1`, Go uses `https://opencode.ai/zen/go/v1`. |
+| API key | from the OpenCode console | Stored encrypted. Or define `AIPD_OPENCODE_API_KEY` in `wp-config.php`. |
+| Model | `claude-sonnet-5`, `gpt-5.5`, `gemini-3.5-flash`, `deepseek-v4-flash` | **Test connection** lists the models of your plan. |
+| API format | Automatic | Claude and Qwen → Messages, GPT/Grok → Responses, Gemini → Gemini API, others → Chat Completions. Override only if needed. |
+| Maximum output tokens | 16000 | Reasoning models count their thinking in this limit. |
+| Allow free models that may use data for training | off | OpenCode documents that some free models may use submitted data for training; they are blocked unless enabled. |
+
+"Test connection" checks connectivity and loads the model list; the API key itself is verified by the first generation request (OpenCode's model list is public). On the Zen plan each request is confirmed because it is billed; on Go and for free models it is not.
+
+### Option B: an OpenAI-compatible API
 
 | Field | Example | Notes |
 | --- | --- | --- |
@@ -53,7 +68,7 @@ Local model servers (for example on `http://127.0.0.1:11434/v1`) are blocked by 
 define( 'AIPD_ALLOW_LOCAL_ENDPOINTS', true );
 ```
 
-### Option B: WordPress AI Client (WordPress 7.0+)
+### Option C: WordPress AI Client (WordPress 7.0+)
 
 Connect an AI service in **Settings > Connectors**, then select **WordPress AI Client (Connectors)** in AI Page Designer and save. Keys stay in WordPress core settings.
 

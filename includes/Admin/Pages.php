@@ -482,6 +482,12 @@ final class Pages {
 			}
 		} elseif ( 'checkbox' === $type ) {
 			echo '<label><input type="checkbox" id="' . esc_attr( $id ) . '" name="' . esc_attr( $name ) . '" value="1"' . checked( (bool) $value, true, false ) . '> ' . esc_html( $field['label'] ) . '</label>';
+		} elseif ( 'select' === $type ) {
+			echo '<select id="' . esc_attr( $id ) . '" name="' . esc_attr( $name ) . '">';
+			foreach ( (array) $field['options'] as $option => $label ) {
+				echo '<option value="' . esc_attr( (string) $option ) . '"' . selected( (string) $value, (string) $option, false ) . '>' . esc_html( $label ) . '</option>';
+			}
+			echo '</select>';
 		} elseif ( 'number' === $type ) {
 			printf(
 				'<input type="number" class="small-text" id="%1$s" name="%2$s" value="%3$s" min="%4$s" max="%5$s" step="%6$s">',

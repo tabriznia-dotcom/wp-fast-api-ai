@@ -9,7 +9,6 @@ namespace AIPageDesigner\AI\Providers;
 
 use AIPageDesigner\AI\DTO\CompletionRequest;
 use AIPageDesigner\AI\DTO\CompletionResponse;
-use AIPageDesigner\Security\Redactor;
 use AIPageDesigner\Security\UrlValidator;
 use WP_Error;
 
@@ -286,6 +285,26 @@ class OpenAICompatibleProvider extends AbstractProvider {
 	}
 
 	/**
+	 * Validated base URL of the API.
+	 *
+	 * @return string|WP_Error
+	 */
+	protected function base_url() {
+		return UrlValidator::validate_endpoint( (string) $this->setting( 'api_url' ) );
+	}
+
+	/**
+	 * Authentication headers for a request path. Never logged or passed to hooks.
+	 *
+	 * @param string $path Request path.
+	 * @return array<string,string>
+	 */
+	protected function auth_headers( $path ) {
+		unset( $path );
+		return array( 'Authorization' => 'Bearer ' . $this->secret( 'api_key' ) );
+	}
+
+	/**
 	 * Performs an HTTP request with retries.
 	 *
 	 * @param string     $method  GET or POST.
@@ -296,7 +315,7 @@ class OpenAICompatibleProvider extends AbstractProvider {
 	 * @return array|WP_Error Decoded JSON.
 	 */
 	protected function request( $method, $path, $body = null, $retries = null, $timeout = null ) {
-		$base = UrlValidator::validate_endpoint( (string) $this->setting( 'api_url' ) );
+		$base = $this->base_url();
 		if ( is_wp_error( $base ) ) {
 			return $base;
 		}
@@ -308,10 +327,12 @@ class OpenAICompatibleProvider extends AbstractProvider {
 			'method'      => $method,
 			'timeout'     => $timeout,
 			'redirection' => 0,
-			'headers'     => array(
-				'Authorization' => 'Bearer ' . $this->secret( 'api_key' ),
-				'Content-Type'  => 'application/json',
-				'Accept'        => 'application/json',
+			'headers'     => array_merge(
+				array(
+					'Content-Type' => 'application/json',
+					'Accept'       => 'application/json',
+				),
+				$this->auth_headers( $path )
 			),
 			'user-agent'  => 'AI-Page-Designer/' . AIPD_VERSION . '; WordPress',
 		);
@@ -364,7 +385,7 @@ class OpenAICompatibleProvider extends AbstractProvider {
 				__( 'Could not connect to the AI service. Check the API URL and your server\'s outbound connections.', 'ai-page-designer' ),
 				array(
 					'retryable' => true,
-					'details'   => Redactor::redact_string( substr( $message, 0, 200 ) ),
+					'details'   => $this->scrub( substr( $message, 0, 200 ) ),
 				)
 			);
 		}
@@ -381,12 +402,17 @@ class OpenAICompatibleProvider extends AbstractProvider {
 		}
 
 		$provider_message = '';
+		$provider_type    = '';
 		if ( is_array( $json ) && isset( $json['error']['message'] ) && is_string( $json['error']['message'] ) ) {
-			$provider_message = Redactor::redact_string( sanitize_text_field( substr( $json['error']['message'], 0, 300 ) ) );
+			$provider_message = $this->scrub( sanitize_text_field( substr( $json['error']['message'], 0, 300 ) ) );
+		}
+		if ( is_array( $json ) && isset( $json['error']['type'] ) && is_string( $json['error']['type'] ) ) {
+			$provider_type = substr( preg_replace( '/[^A-Za-z0-9_.-]/', '', $json['error']['type'] ), 0, 64 );
 		}
 		$data = array(
-			'status'  => $code,
-			'details' => $provider_message,
+			'status'        => $code,
+			'details'       => $provider_message,
+			'provider_type' => $provider_type,
 		);
 
 		if ( 401 === $code || 403 === $code ) {

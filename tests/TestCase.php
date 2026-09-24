@@ -46,6 +46,7 @@ abstract class TestCase extends \WP_UnitTestCase {
 				$map = array(
 					'api.example.com'  => array( '93.184.216.34' ),
 					'api.openai.com'   => array( '104.18.7.192' ),
+					'opencode.ai'      => array( '104.21.32.1' ),
 					'internal.example' => array( '10.0.0.5' ),
 					'metadata.example' => array( '169.254.169.254' ),
 				);

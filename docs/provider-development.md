@@ -107,6 +107,11 @@ add_action( 'aipd_register_providers', function ( $registry ) {
 
 The provider automatically appears on **AI Page Designer > AI Providers**, its key is stored encrypted, and it can also be supplied with `define( 'AIPD_EXAMPLE_AI_API_KEY', '…' );` (pattern: `AIPD_{PROVIDER_ID}_{FIELD_ID}` in upper case).
 
+## Reference implementations
+
+* `OpenAICompatibleProvider`: one endpoint, Bearer auth, retries and error mapping. Override `base_url()` and `auth_headers( $path )` to reuse it for similar APIs.
+* `OpenCodeProvider`: one key, several native API formats chosen per model (Chat Completions, Responses, Anthropic Messages, Gemini), each with its own auth header and response parser, plus provider-specific error mapping from `provider_type`.
+
 ## Testing
 
 Use the `pre_http_request` filter to fake responses (see `tests/TestCase.php::queue_completion()`), and assert that:

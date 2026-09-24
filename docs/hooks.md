@@ -22,6 +22,9 @@ All hooks use the `aipd_` prefix. No hook ever receives an API key, a decrypted 
 | `aipd_ai_request` | `CompletionRequest $request` | `string $provider_id` | Change temperature, max tokens or JSON mode. Must return a `CompletionRequest`. |
 | `aipd_system_prompt` | `string $system` | `string $purpose` (`outline`, `page`, `section`) | Extend instructions. The core safety rules are re-appended after filtering and cannot be removed. |
 | `aipd_openai_compatible_body` | `array $body` | `CompletionRequest $request` | Add provider-specific parameters. Never add credentials. |
+| `aipd_opencode_body` | `array $body` | `CompletionRequest $request, string $format` | Body sent to OpenCode for the `responses`, `messages` and `google` formats (the `chat` format uses `aipd_openai_compatible_body`). |
+| `aipd_opencode_base_url` | `string $url` | `string $plan` (`zen`, `go`) | OpenCode API base URL. Validated like any endpoint (HTTPS, public host). |
+| `aipd_opencode_zero_retention_free_models` | `string[] $models` | | Free OpenCode models documented as zero-retention, which do not need the training opt-in (default `space-bunny-free`). |
 | `aipd_rate_limit_per_hour` | `int $limit` | | Per-user hourly request limit. |
 | `aipd_allow_local_endpoints` | `bool $allowed` | | Allow private/loopback API URLs (default from `AIPD_ALLOW_LOCAL_ENDPOINTS`). |
 | `aipd_resolve_host` | `string[]|null $ips` | `string $host` | Pre-resolve DNS for the SSRF check (used by tests). |

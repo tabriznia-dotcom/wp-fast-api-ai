@@ -8,7 +8,7 @@ msgstr ""
 "Content-Type: text/plain; charset=UTF-8\n"
 "Content-Transfer-Encoding: 8bit\n"
 "POT-Creation-Date: 2026-09-24T08:13:07+00:00\n"
-"PO-Revision-Date: 2026-09-24T08:30:17+00:00\n"
+"PO-Revision-Date: 2026-09-24T09:10:10+00:00\n"
 "Language: fa_IR\n"
 "Plural-Forms: nplurals=1; plural=0;\n"
 "X-Generator: WP-CLI 2.12.0\n"
@@ -81,32 +81,32 @@ msgid "AI Providers"
 msgstr "ارائه‌دهندگان هوش مصنوعی"
 
 #: includes/Admin/Admin.php:71
-#: includes/Admin/Pages.php:514
+#: includes/Admin/Pages.php:520
 msgid "API Settings"
 msgstr "تنظیمات API"
 
 #: includes/Admin/Admin.php:72
-#: includes/Admin/Pages.php:548
+#: includes/Admin/Pages.php:554
 msgid "Logs"
 msgstr "گزارش‌ها"
 
 #: includes/Admin/Admin.php:73
-#: includes/Admin/Pages.php:586
+#: includes/Admin/Pages.php:592
 msgid "Privacy"
 msgstr "حریم خصوصی"
 
 #: includes/Admin/Admin.php:74
-#: includes/Admin/Pages.php:633
+#: includes/Admin/Pages.php:639
 msgid "Import/Export"
 msgstr "درون‌ریزی/برون‌بری"
 
 #: includes/Admin/Admin.php:75
-#: includes/Admin/Pages.php:658
+#: includes/Admin/Pages.php:664
 msgid "Help"
 msgstr "راهنما"
 
-#: includes/Admin/Admin.php:175
-#: includes/Admin/Pages.php:642
+#: includes/Admin/Admin.php:176
+#: includes/Admin/Pages.php:648
 msgid "Settings"
 msgstr "تنظیمات"
 
@@ -194,12 +194,12 @@ msgid "Browse templates"
 msgstr "مرور قالب‌ها"
 
 #: includes/Admin/Pages.php:139
-#: includes/Admin/Pages.php:670
+#: includes/Admin/Pages.php:676
 msgid "Page builders"
 msgstr "صفحه‌سازها"
 
 #: includes/Admin/Pages.php:141
-#: includes/Admin/Pages.php:523
+#: includes/Admin/Pages.php:529
 msgid "not active"
 msgstr "غیرفعال"
 
@@ -287,7 +287,7 @@ msgid "Delete"
 msgstr "حذف"
 
 #: includes/Admin/Pages.php:218
-#: includes/Admin/Pages.php:635
+#: includes/Admin/Pages.php:641
 msgid "Import a template"
 msgstr "درون‌ریزی قالب"
 
@@ -437,7 +437,7 @@ msgid "Failed"
 msgstr "ناموفق"
 
 #: includes/Admin/Pages.php:347
-#: includes/Admin/Pages.php:566
+#: includes/Admin/Pages.php:572
 #: includes/Privacy/Privacy.php:127
 msgid "Date"
 msgstr "تاریخ"
@@ -539,262 +539,262 @@ msgstr "حذف کلید ذخیره‌شده"
 msgid "Alternatively define %s in wp-config.php."
 msgstr "یا ثابت %s را در wp-config.php تعریف کنید."
 
-#: includes/Admin/Pages.php:519
+#: includes/Admin/Pages.php:525
 msgid "Cost confirmation"
 msgstr "تأیید هزینه"
 
-#: includes/Admin/Pages.php:519
+#: includes/Admin/Pages.php:525
 msgid "Ask for confirmation before every request to a paid provider"
 msgstr "پیش از هر درخواست به ارائه‌دهنده پولی، تأیید گرفته شود"
 
-#: includes/Admin/Pages.php:520
+#: includes/Admin/Pages.php:526
 msgid "Requests per user per hour"
 msgstr "تعداد درخواست هر کاربر در ساعت"
 
-#: includes/Admin/Pages.php:520
+#: includes/Admin/Pages.php:526
 msgid "Protects your AI budget from accidental repeated requests."
 msgstr "بودجه هوش مصنوعی شما را در برابر درخواست‌های تکراری ناخواسته محافظت می‌کند."
 
-#: includes/Admin/Pages.php:521
+#: includes/Admin/Pages.php:527
 msgid "Default page builder"
 msgstr "صفحه‌ساز پیش‌فرض"
 
-#: includes/Admin/Pages.php:526
+#: includes/Admin/Pages.php:532
 msgid "Logging"
 msgstr "ثبت گزارش"
 
-#: includes/Admin/Pages.php:526
+#: includes/Admin/Pages.php:532
 msgid "Keep operational logs (never contains keys, prompts or generated text)"
 msgstr "نگهداری گزارش‌های عملیاتی (هرگز شامل کلیدها، پرامپت‌ها یا متن تولیدشده نیست)"
 
-#: includes/Admin/Pages.php:526
+#: includes/Admin/Pages.php:532
 msgid "Minimum level"
 msgstr "حداقل سطح"
 
-#: includes/Admin/Pages.php:528
+#: includes/Admin/Pages.php:534
 msgid "Debug"
 msgstr "اشکال‌زدایی"
 
-#: includes/Admin/Pages.php:529
+#: includes/Admin/Pages.php:535
 msgid "Info"
 msgstr "اطلاعات"
 
-#: includes/Admin/Pages.php:530
+#: includes/Admin/Pages.php:536
 msgid "Warning"
 msgstr "هشدار"
 
-#: includes/Admin/Pages.php:531
+#: includes/Admin/Pages.php:537
 msgid "Error"
 msgstr "خطا"
 
-#: includes/Admin/Pages.php:554
+#: includes/Admin/Pages.php:560
 msgid "Logging is disabled in API Settings."
 msgstr "ثبت گزارش در تنظیمات API غیرفعال است."
 
-#: includes/Admin/Pages.php:556
-#: includes/Admin/Pages.php:566
+#: includes/Admin/Pages.php:562
+#: includes/Admin/Pages.php:572
 msgid "Level"
 msgstr "سطح"
 
-#: includes/Admin/Pages.php:556
+#: includes/Admin/Pages.php:562
 msgid "All"
 msgstr "همه"
 
-#: includes/Admin/Pages.php:560
+#: includes/Admin/Pages.php:566
 msgid "Filter"
 msgstr "صافی"
 
-#: includes/Admin/Pages.php:564
+#: includes/Admin/Pages.php:570
 msgid "No log entries."
 msgstr "هیچ گزارشی ثبت نشده است."
 
-#: includes/Admin/Pages.php:566
+#: includes/Admin/Pages.php:572
 msgid "Event"
 msgstr "رویداد"
 
-#: includes/Admin/Pages.php:566
+#: includes/Admin/Pages.php:572
 msgid "Message"
 msgstr "پیام"
 
-#: includes/Admin/Pages.php:566
+#: includes/Admin/Pages.php:572
 msgid "Details"
 msgstr "جزئیات"
 
-#: includes/Admin/Pages.php:575
+#: includes/Admin/Pages.php:581
 msgid "Clear all logs"
 msgstr "پاک کردن همه گزارش‌ها"
 
-#: includes/Admin/Pages.php:591
+#: includes/Admin/Pages.php:597
 msgid "What is sent to the AI service"
 msgstr "چه داده‌ای به سرویس هوش مصنوعی ارسال می‌شود"
 
 #. translators: %s: service name or host.
-#: includes/Admin/Pages.php:594
+#: includes/Admin/Pages.php:600
 #, php-format
 msgid "Requests go to %s."
 msgstr "درخواست‌ها به %s ارسال می‌شوند."
 
-#: includes/Admin/Pages.php:598
+#: includes/Admin/Pages.php:604
 msgid "Terms of use"
 msgstr "شرایط استفاده"
 
-#: includes/Admin/Pages.php:598
-#: includes/Admin/Pages.php:601
+#: includes/Admin/Pages.php:604
+#: includes/Admin/Pages.php:607
 #: src/wizard/App.js:1019
 msgid "(opens in a new tab)"
 msgstr "(در زبانه جدید باز می‌شود)"
 
-#: includes/Admin/Pages.php:601
+#: includes/Admin/Pages.php:607
 msgid "Privacy policy"
 msgstr "سیاست حفظ حریم خصوصی"
 
-#: includes/Admin/Pages.php:606
+#: includes/Admin/Pages.php:612
 msgid "Your site content, users, orders or other data are never sent unless you type them into the brief."
 msgstr "محتوای سایت، کاربران، سفارش‌ها یا دیگر داده‌های شما هرگز ارسال نمی‌شوند، مگر اینکه خودتان آن‌ها را در توضیحات بنویسید."
 
-#: includes/Admin/Pages.php:606
+#: includes/Admin/Pages.php:612
 msgid "API keys are sent only to the configured API URL in an Authorization header."
 msgstr "کلیدهای API فقط در سرآیند Authorization و به نشانی API پیکربندی‌شده ارسال می‌شوند."
 
-#: includes/Admin/Pages.php:606
+#: includes/Admin/Pages.php:612
 msgid "The plugin does not track visitors and sends no telemetry."
 msgstr "این افزونه بازدیدکنندگان را ردیابی نمی‌کند و هیچ داده تله‌متری ارسال نمی‌کند."
 
-#: includes/Admin/Pages.php:607
+#: includes/Admin/Pages.php:613
 msgid "Suggested privacy policy text"
 msgstr "متن پیشنهادی برای سیاست حفظ حریم خصوصی"
 
-#: includes/Admin/Pages.php:612
+#: includes/Admin/Pages.php:618
 msgid "Consent"
 msgstr "رضایت"
 
-#: includes/Admin/Pages.php:612
+#: includes/Admin/Pages.php:618
 msgid "I understand that briefs are sent to the configured AI service and I am allowed to share this data with it."
 msgstr "می‌دانم که توضیحات به سرویس هوش مصنوعی پیکربندی‌شده ارسال می‌شوند و اجازه اشتراک این داده‌ها با آن را دارم."
 
 #. translators: %s: date.
-#: includes/Admin/Pages.php:615
+#: includes/Admin/Pages.php:621
 #, php-format
 msgid "Accepted on %s."
 msgstr "پذیرفته‌شده در %s."
 
-#: includes/Admin/Pages.php:618
+#: includes/Admin/Pages.php:624
 msgid "Generation history"
 msgstr "تاریخچه تولید"
 
-#: includes/Admin/Pages.php:618
+#: includes/Admin/Pages.php:624
 msgid "Store briefs and results so users can revisit them"
 msgstr "توضیحات و نتایج ذخیره شوند تا کاربران بتوانند دوباره به آن‌ها مراجعه کنند"
 
-#: includes/Admin/Pages.php:619
+#: includes/Admin/Pages.php:625
 msgid "Retention (days)"
 msgstr "مدت نگهداری (روز)"
 
-#: includes/Admin/Pages.php:619
+#: includes/Admin/Pages.php:625
 msgid "History and logs older than this are deleted daily."
 msgstr "تاریخچه و گزارش‌های قدیمی‌تر از این مدت، روزانه حذف می‌شوند."
 
-#: includes/Admin/Pages.php:620
+#: includes/Admin/Pages.php:626
 msgid "Uninstall"
 msgstr "حذف افزونه"
 
-#: includes/Admin/Pages.php:620
+#: includes/Admin/Pages.php:626
 msgid "Delete all plugin data (settings, keys, history, logs, saved templates) when the plugin is deleted"
 msgstr "هنگام حذف افزونه، همه داده‌های آن (تنظیمات، کلیدها، تاریخچه، گزارش‌ها، قالب‌های ذخیره‌شده) پاک شود"
 
-#: includes/Admin/Pages.php:620
+#: includes/Admin/Pages.php:626
 msgid "Pages you created are your content and are never deleted."
 msgstr "صفحاتی که ساخته‌اید محتوای شما هستند و هرگز حذف نمی‌شوند."
 
-#: includes/Admin/Pages.php:635
+#: includes/Admin/Pages.php:641
 msgid "Upload a .json template exported from AI Page Designer (maximum 512 KB). Every value is validated before it is saved."
 msgstr "یک قالب ‎.json برون‌بری‌شده از طراح صفحه هوش مصنوعی بارگذاری کنید (حداکثر ۵۱۲ کیلوبایت). همه مقادیر پیش از ذخیره اعتبارسنجی می‌شوند."
 
-#: includes/Admin/Pages.php:638
+#: includes/Admin/Pages.php:644
 msgid "Template file"
 msgstr "فایل قالب"
 
-#: includes/Admin/Pages.php:639
+#: includes/Admin/Pages.php:645
 msgid "Import template"
 msgstr "درون‌ریزی قالب"
 
-#: includes/Admin/Pages.php:642
+#: includes/Admin/Pages.php:648
 msgid "Export general settings, brand kit and provider options to reuse on another site. API keys are never exported."
 msgstr "تنظیمات عمومی، کیت برند و گزینه‌های ارائه‌دهنده را برای استفاده در سایت دیگر برون‌بری کنید. کلیدهای API هرگز برون‌بری نمی‌شوند."
 
-#: includes/Admin/Pages.php:643
+#: includes/Admin/Pages.php:649
 msgid "Export settings"
 msgstr "برون‌بری تنظیمات"
 
-#: includes/Admin/Pages.php:646
+#: includes/Admin/Pages.php:652
 msgid "Settings file"
 msgstr "فایل تنظیمات"
 
-#: includes/Admin/Pages.php:647
+#: includes/Admin/Pages.php:653
 msgid "Import settings"
 msgstr "درون‌ریزی تنظیمات"
 
-#: includes/Admin/Pages.php:660
+#: includes/Admin/Pages.php:666
 msgid "Getting started"
 msgstr "شروع کار"
 
-#: includes/Admin/Pages.php:661
+#: includes/Admin/Pages.php:667
 msgid "Review the data sharing notice under Privacy."
 msgstr "اطلاعیه اشتراک داده را در بخش حریم خصوصی بازبینی کنید."
 
-#: includes/Admin/Pages.php:662
+#: includes/Admin/Pages.php:668
 msgid "Configure a provider under AI Providers and use \"Test connection\"."
 msgstr "در بخش ارائه‌دهندگان هوش مصنوعی یک ارائه‌دهنده پیکربندی کنید و از «آزمایش اتصال» استفاده کنید."
 
-#: includes/Admin/Pages.php:663
+#: includes/Admin/Pages.php:669
 msgid "Open New Page, describe your page and follow the steps. You can edit the proposed structure before any content is generated."
 msgstr "«صفحه جدید» را باز کنید، صفحه خود را توصیف کنید و مراحل را دنبال کنید. پیش از تولید هر محتوایی می‌توانید ساختار پیشنهادی را ویرایش کنید."
 
-#: includes/Admin/Pages.php:664
+#: includes/Admin/Pages.php:670
 msgid "The result is always saved as a draft. Review it in the editor and publish when you are ready."
 msgstr "نتیجه همیشه به‌صورت پیش‌نویس ذخیره می‌شود. آن را در ویرایشگر بازبینی کنید و هر زمان آماده بودید منتشر کنید."
 
-#: includes/Admin/Pages.php:666
+#: includes/Admin/Pages.php:672
 msgid "Languages and RTL"
 msgstr "زبان‌ها و راست‌به‌چپ"
 
-#: includes/Admin/Pages.php:667
+#: includes/Admin/Pages.php:673
 msgid "The content language is chosen per page and can differ from your admin language. Right-to-left languages such as Persian, Arabic and Hebrew automatically use RTL layout."
 msgstr "زبان محتوا برای هر صفحه جداگانه انتخاب می‌شود و می‌تواند با زبان پیشخوان متفاوت باشد. زبان‌های راست‌به‌چپ مانند فارسی، عربی و عبری به‌طور خودکار از چیدمان راست‌به‌چپ استفاده می‌کنند."
 
-#: includes/Admin/Pages.php:668
+#: includes/Admin/Pages.php:674
 msgid "If WPML or Polylang is active, the draft is assigned to the matching language when it exists."
 msgstr "اگر WPML یا Polylang فعال باشد، پیش‌نویس در صورت وجود به زبان متناظر اختصاص می‌یابد."
 
-#: includes/Admin/Pages.php:671
+#: includes/Admin/Pages.php:677
 msgid "Block editor output uses only core blocks, so it stays editable if this plugin is deactivated."
 msgstr "خروجی ویرایشگر بلوکی فقط از بلوک‌های هسته استفاده می‌کند، بنابراین با غیرفعال شدن این افزونه نیز قابل ویرایش می‌ماند."
 
-#: includes/Admin/Pages.php:672
+#: includes/Admin/Pages.php:678
 msgid "Elementor output uses standard widgets. Elementor Pro widgets (forms, price tables) are used only when Elementor Pro is active."
 msgstr "خروجی المنتور از ابزارک‌های استاندارد استفاده می‌کند. ابزارک‌های المنتور پرو (فرم‌ها، جدول‌های قیمت) فقط زمانی استفاده می‌شوند که المنتور پرو فعال باشد."
 
-#: includes/Admin/Pages.php:673
+#: includes/Admin/Pages.php:679
 msgid "Other builders can use the Classic/HTML output. Dedicated adapters can be added by developers."
 msgstr "سایر صفحه‌سازها می‌توانند از خروجی کلاسیک/HTML استفاده کنند. توسعه‌دهندگان می‌توانند آداپتورهای اختصاصی اضافه کنند."
 
-#: includes/Admin/Pages.php:675
+#: includes/Admin/Pages.php:681
 msgid "Troubleshooting"
 msgstr "عیب‌یابی"
 
-#: includes/Admin/Pages.php:676
+#: includes/Admin/Pages.php:682
 msgid "Timeouts: increase the timeout in AI Providers or reduce the number of sections."
 msgstr "پایان مهلت: مهلت زمانی را در ارائه‌دهندگان هوش مصنوعی افزایش دهید یا تعداد بخش‌ها را کم کنید."
 
-#: includes/Admin/Pages.php:677
+#: includes/Admin/Pages.php:683
 msgid "Cut-off responses: increase the maximum output tokens."
 msgstr "پاسخ‌های ناقص: حداکثر توکن‌های خروجی را افزایش دهید."
 
-#: includes/Admin/Pages.php:678
+#: includes/Admin/Pages.php:684
 msgid "Blocked API URL: the URL must be public HTTPS. Local model servers require AIPD_ALLOW_LOCAL_ENDPOINTS in wp-config.php."
 msgstr "نشانی API مسدود شده: نشانی باید HTTPS عمومی باشد. سرورهای مدل محلی به AIPD_ALLOW_LOCAL_ENDPOINTS در wp-config.php نیاز دارند."
 
-#: includes/Admin/Pages.php:679
+#: includes/Admin/Pages.php:685
 msgid "See Logs for error codes. Logs never include keys or content."
 msgstr "کدهای خطا را در گزارش‌ها ببینید. گزارش‌ها هرگز شامل کلیدها یا محتوا نیستند."
 
@@ -834,144 +834,279 @@ msgstr "بخش مورد نظر پیدا نشد."
 msgid "The regenerated section was not valid."
 msgstr "بخش بازتولیدشده معتبر نبود."
 
-#: includes/AI/Providers/AbstractProvider.php:123
+#: includes/AI/Providers/AbstractProvider.php:146
 msgid "The API key format is not valid."
 msgstr "قالب کلید API معتبر نیست."
 
-#: includes/AI/Providers/OpenAICompatibleProvider.php:43
+#: includes/AI/Providers/OpenAICompatibleProvider.php:42
 msgid "OpenAI-compatible API"
 msgstr "API سازگار با OpenAI"
 
-#: includes/AI/Providers/OpenAICompatibleProvider.php:50
+#: includes/AI/Providers/OpenAICompatibleProvider.php:49
 msgid "Connect to OpenAI or any service that implements the OpenAI Chat Completions API. Requests are sent from your server only."
 msgstr "به OpenAI یا هر سرویسی که API گفت‌وگوی OpenAI (Chat Completions) را پیاده‌سازی می‌کند متصل شوید. درخواست‌ها فقط از سرور شما ارسال می‌شوند."
 
-#: includes/AI/Providers/OpenAICompatibleProvider.php:60
+#: includes/AI/Providers/OpenAICompatibleProvider.php:59
 msgid "API base URL"
 msgstr "نشانی پایه API"
 
-#: includes/AI/Providers/OpenAICompatibleProvider.php:63
+#: includes/AI/Providers/OpenAICompatibleProvider.php:62
 msgid "The base URL of your provider, without /chat/completions, for example https://api.openai.com/v1. HTTPS is required."
 msgstr "نشانی پایه ارائه‌دهنده شما، بدون ‎/chat/completions، برای مثال https://api.openai.com/v1. استفاده از HTTPS الزامی است."
 
-#: includes/AI/Providers/OpenAICompatibleProvider.php:67
+#: includes/AI/Providers/OpenAICompatibleProvider.php:66
+#: includes/AI/Providers/OpenCodeProvider.php:78
 msgid "API key"
 msgstr "کلید API"
 
-#: includes/AI/Providers/OpenAICompatibleProvider.php:71
+#: includes/AI/Providers/OpenAICompatibleProvider.php:70
+#: includes/AI/Providers/OpenCodeProvider.php:82
 msgid "Stored encrypted. It is never shown again, sent to the browser or written to logs. You can also define it in wp-config.php."
 msgstr "به‌صورت رمزنگاری‌شده ذخیره می‌شود و هرگز دوباره نمایش داده نمی‌شود، به مرورگر ارسال نمی‌شود و در گزارش‌ها نوشته نمی‌شود. می‌توانید آن را در wp-config.php نیز تعریف کنید."
 
-#: includes/AI/Providers/OpenAICompatibleProvider.php:75
+#: includes/AI/Providers/OpenAICompatibleProvider.php:74
+#: includes/AI/Providers/OpenCodeProvider.php:86
 msgid "Model"
 msgstr "مدل"
 
-#: includes/AI/Providers/OpenAICompatibleProvider.php:78
+#: includes/AI/Providers/OpenAICompatibleProvider.php:77
 msgid "The model identifier offered by your provider. Use \"Test connection\" to list available models."
 msgstr "شناسه مدلی که ارائه‌دهنده شما عرضه می‌کند. برای دیدن فهرست مدل‌های موجود از «آزمایش اتصال» استفاده کنید."
 
-#: includes/AI/Providers/OpenAICompatibleProvider.php:82
+#: includes/AI/Providers/OpenAICompatibleProvider.php:81
+#: includes/AI/Providers/OpenCodeProvider.php:107
 msgid "Timeout (seconds)"
 msgstr "مهلت زمانی (ثانیه)"
 
-#: includes/AI/Providers/OpenAICompatibleProvider.php:91
+#: includes/AI/Providers/OpenAICompatibleProvider.php:90
+#: includes/AI/Providers/OpenCodeProvider.php:116
 #: includes/AI/Providers/WPAIClientProvider.php:81
 msgid "Temperature"
 msgstr "دما (Temperature)"
 
-#: includes/AI/Providers/OpenAICompatibleProvider.php:100
+#: includes/AI/Providers/OpenAICompatibleProvider.php:99
+#: includes/AI/Providers/OpenCodeProvider.php:126
 #: includes/AI/Providers/WPAIClientProvider.php:90
 msgid "Maximum output tokens"
 msgstr "حداکثر توکن‌های خروجی"
 
-#: includes/AI/Providers/OpenAICompatibleProvider.php:109
+#: includes/AI/Providers/OpenAICompatibleProvider.php:108
+#: includes/AI/Providers/OpenCodeProvider.php:136
 msgid "Retries on temporary errors"
 msgstr "تلاش مجدد هنگام خطاهای موقت"
 
-#: includes/AI/Providers/OpenAICompatibleProvider.php:115
+#: includes/AI/Providers/OpenAICompatibleProvider.php:114
 msgid "Retries happen only for timeouts, rate limits and server errors."
 msgstr "تلاش مجدد فقط برای پایان مهلت، محدودیت نرخ و خطاهای سرور انجام می‌شود."
 
-#: includes/AI/Providers/OpenAICompatibleProvider.php:119
+#: includes/AI/Providers/OpenAICompatibleProvider.php:118
+#: includes/AI/Providers/OpenCodeProvider.php:145
 msgid "Request JSON output mode"
 msgstr "درخواست حالت خروجی JSON"
 
-#: includes/AI/Providers/OpenAICompatibleProvider.php:122
+#: includes/AI/Providers/OpenAICompatibleProvider.php:121
 msgid "Sends response_format = json_object. Disable if your provider does not support it."
 msgstr "پارامتر response_format = json_object را ارسال می‌کند. اگر ارائه‌دهنده شما از آن پشتیبانی نمی‌کند غیرفعالش کنید."
 
-#: includes/AI/Providers/OpenAICompatibleProvider.php:126
+#: includes/AI/Providers/OpenAICompatibleProvider.php:125
 msgid "Requests may cost money"
 msgstr "درخواست‌ها ممکن است هزینه داشته باشند"
 
-#: includes/AI/Providers/OpenAICompatibleProvider.php:129
+#: includes/AI/Providers/OpenAICompatibleProvider.php:128
 msgid "When enabled, users confirm every generation request before it is sent."
 msgstr "در صورت فعال بودن، کاربران پیش از ارسال هر درخواست تولید آن را تأیید می‌کنند."
 
-#: includes/AI/Providers/OpenAICompatibleProvider.php:148
+#: includes/AI/Providers/OpenAICompatibleProvider.php:147
+#: includes/AI/Providers/OpenCodeProvider.php:169
 msgid "The model name contains unsupported characters."
 msgstr "نام مدل شامل نویسه‌های پشتیبانی‌نشده است."
 
-#: includes/AI/Providers/OpenAICompatibleProvider.php:173
+#: includes/AI/Providers/OpenAICompatibleProvider.php:172
 msgid "the configured AI service"
 msgstr "سرویس هوش مصنوعی پیکربندی‌شده"
 
-#: includes/AI/Providers/OpenAICompatibleProvider.php:176
+#: includes/AI/Providers/OpenAICompatibleProvider.php:175
 msgid "The page brief you enter (business description, audience, goals, tone, language, colors and call to action), the approved outline and, when regenerating a section, that section's content."
 msgstr "توضیحاتی که برای صفحه وارد می‌کنید (شرح کسب‌وکار، مخاطب، اهداف، لحن، زبان، رنگ‌ها و فراخوان اقدام)، ساختار تأییدشده و هنگام بازتولید یک بخش، محتوای همان بخش."
 
-#: includes/AI/Providers/OpenAICompatibleProvider.php:187
+#: includes/AI/Providers/OpenAICompatibleProvider.php:186
+#: includes/AI/Providers/OpenCodeProvider.php:332
 msgid "The AI provider is not configured. Add an API key and model in AI Providers."
 msgstr "ارائه‌دهنده هوش مصنوعی پیکربندی نشده است. کلید API و مدل را در ارائه‌دهندگان هوش مصنوعی وارد کنید."
 
-#: includes/AI/Providers/OpenAICompatibleProvider.php:230
+#: includes/AI/Providers/OpenAICompatibleProvider.php:229
+#: includes/AI/Providers/OpenCodeProvider.php:628
 #: includes/AI/Providers/WPAIClientProvider.php:155
 msgid "The AI service returned an incomplete response."
 msgstr "سرویس هوش مصنوعی پاسخ ناقصی برگرداند."
 
-#: includes/AI/Providers/OpenAICompatibleProvider.php:238
+#: includes/AI/Providers/OpenAICompatibleProvider.php:237
+#: includes/AI/Providers/OpenCodeProvider.php:619
 msgid "The AI model declined this request. Please revise the brief."
 msgstr "مدل هوش مصنوعی این درخواست را رد کرد. لطفاً توضیحات را اصلاح کنید."
 
-#: includes/AI/Providers/OpenAICompatibleProvider.php:241
+#: includes/AI/Providers/OpenAICompatibleProvider.php:240
+#: includes/AI/Providers/OpenCodeProvider.php:610
 msgid "The AI response was cut off because it reached the maximum output tokens. Increase the limit or request fewer sections."
 msgstr "پاسخ هوش مصنوعی به دلیل رسیدن به حداکثر توکن‌های خروجی ناقص ماند. سقف را افزایش دهید یا بخش‌های کمتری درخواست کنید."
 
-#: includes/AI/Providers/OpenAICompatibleProvider.php:270
+#: includes/AI/Providers/OpenAICompatibleProvider.php:269
 msgid "Add an API key before testing the connection."
 msgstr "پیش از آزمایش اتصال، کلید API را وارد کنید."
 
-#: includes/AI/Providers/OpenAICompatibleProvider.php:360
+#: includes/AI/Providers/OpenAICompatibleProvider.php:381
 msgid "The AI service did not respond in time. Try again, or increase the timeout in AI Providers."
 msgstr "سرویس هوش مصنوعی به‌موقع پاسخ نداد. دوباره تلاش کنید یا مهلت زمانی را در ارائه‌دهندگان هوش مصنوعی افزایش دهید."
 
-#: includes/AI/Providers/OpenAICompatibleProvider.php:364
+#: includes/AI/Providers/OpenAICompatibleProvider.php:385
 msgid "Could not connect to the AI service. Check the API URL and your server's outbound connections."
 msgstr "اتصال به سرویس هوش مصنوعی برقرار نشد. نشانی API و اتصالات خروجی سرور خود را بررسی کنید."
 
-#: includes/AI/Providers/OpenAICompatibleProvider.php:378
+#: includes/AI/Providers/OpenAICompatibleProvider.php:399
 msgid "The AI service returned a response that could not be read."
 msgstr "سرویس هوش مصنوعی پاسخی برگرداند که قابل خواندن نبود."
 
-#: includes/AI/Providers/OpenAICompatibleProvider.php:393
+#: includes/AI/Providers/OpenAICompatibleProvider.php:419
 msgid "The AI service rejected the API key. Check the key and its permissions."
 msgstr "سرویس هوش مصنوعی کلید API را رد کرد. کلید و مجوزهای آن را بررسی کنید."
 
-#: includes/AI/Providers/OpenAICompatibleProvider.php:396
+#: includes/AI/Providers/OpenAICompatibleProvider.php:422
 msgid "The AI service could not find the endpoint or model. Check the API URL and model name."
 msgstr "سرویس هوش مصنوعی نقطه پایانی یا مدل را پیدا نکرد. نشانی API و نام مدل را بررسی کنید."
 
-#: includes/AI/Providers/OpenAICompatibleProvider.php:404
+#: includes/AI/Providers/OpenAICompatibleProvider.php:430
 msgid "The AI service rate limit or quota was reached. Wait a moment and try again, or check your plan."
 msgstr "محدودیت نرخ یا سهمیه سرویس هوش مصنوعی به پایان رسیده است. کمی صبر کنید و دوباره تلاش کنید یا طرح اشتراک خود را بررسی کنید."
 
-#: includes/AI/Providers/OpenAICompatibleProvider.php:408
+#: includes/AI/Providers/OpenAICompatibleProvider.php:434
 msgid "The AI service had a temporary problem. Please try again."
 msgstr "سرویس هوش مصنوعی با مشکل موقتی مواجه شد. لطفاً دوباره تلاش کنید."
 
-#: includes/AI/Providers/OpenAICompatibleProvider.php:410
+#: includes/AI/Providers/OpenAICompatibleProvider.php:436
 msgid "The AI service rejected the request."
 msgstr "سرویس هوش مصنوعی درخواست را رد کرد."
+
+#: includes/AI/Providers/OpenCodeProvider.php:50
+msgid "OpenCode (Zen / Go)"
+msgstr "OpenCode (Zen / Go)"
+
+#: includes/AI/Providers/OpenCodeProvider.php:57
+msgid "Use models from OpenCode Zen (pay as you go) or OpenCode Go (subscription) with one API key. GPT, Claude, Gemini, Qwen, DeepSeek, GLM, Kimi and other models are called through their native API format automatically. Requests are sent from your server only."
+msgstr "با یک کلید API از مدل‌های OpenCode Zen (پرداخت به‌ازای مصرف) یا OpenCode Go (اشتراکی) استفاده کنید. مدل‌های GPT، Claude، Gemini، Qwen، DeepSeek، GLM، Kimi و دیگر مدل‌ها به‌طور خودکار با قالب API بومی خود فراخوانی می‌شوند. درخواست‌ها فقط از سرور شما ارسال می‌شوند."
+
+#: includes/AI/Providers/OpenCodeProvider.php:67
+msgid "Plan"
+msgstr "طرح"
+
+#: includes/AI/Providers/OpenCodeProvider.php:71
+msgid "OpenCode Zen (pay as you go)"
+msgstr "OpenCode Zen (پرداخت به‌ازای مصرف)"
+
+#: includes/AI/Providers/OpenCodeProvider.php:72
+msgid "OpenCode Go (subscription)"
+msgstr "OpenCode Go (اشتراکی)"
+
+#: includes/AI/Providers/OpenCodeProvider.php:74
+msgid "Create an API key in the OpenCode console at opencode.ai."
+msgstr "کلید API را در کنسول OpenCode در opencode.ai بسازید."
+
+#: includes/AI/Providers/OpenCodeProvider.php:89
+msgid "Model id, for example claude-sonnet-5, gpt-5.5, gemini-3.5-flash or deepseek-v4-flash. Use \"Test connection\" to list the models of your plan."
+msgstr "شناسه مدل، برای مثال claude-sonnet-5، gpt-5.5، gemini-3.5-flash یا deepseek-v4-flash. برای دیدن فهرست مدل‌های طرح خود از «آزمایش اتصال» استفاده کنید."
+
+#: includes/AI/Providers/OpenCodeProvider.php:93
+msgid "API format"
+msgstr "قالب API"
+
+#: includes/AI/Providers/OpenCodeProvider.php:97
+msgid "Automatic (from the model id)"
+msgstr "خودکار (بر اساس شناسه مدل)"
+
+#: includes/AI/Providers/OpenCodeProvider.php:98
+msgid "Chat Completions (OpenAI-compatible)"
+msgstr "Chat Completions (سازگار با OpenAI)"
+
+#: includes/AI/Providers/OpenCodeProvider.php:99
+msgid "Responses (OpenAI)"
+msgstr "Responses (OpenAI)"
+
+#: includes/AI/Providers/OpenCodeProvider.php:100
+msgid "Messages (Anthropic)"
+msgstr "Messages (Anthropic)"
+
+#: includes/AI/Providers/OpenCodeProvider.php:101
+msgid "Gemini (Google)"
+msgstr "Gemini (گوگل)"
+
+#: includes/AI/Providers/OpenCodeProvider.php:103
+msgid "Only change this if OpenCode serves your model through a different endpoint than detected."
+msgstr "فقط زمانی این را تغییر دهید که OpenCode مدل شما را از نقطه پایانی دیگری غیر از مورد تشخیص‌داده‌شده ارائه می‌کند."
+
+#: includes/AI/Providers/OpenCodeProvider.php:122
+msgid "Sent to Chat Completions and Gemini models only; reasoning models choose their own sampling."
+msgstr "فقط برای مدل‌های Chat Completions و Gemini ارسال می‌شود؛ مدل‌های استدلالی نمونه‌برداری را خودشان تعیین می‌کنند."
+
+#: includes/AI/Providers/OpenCodeProvider.php:132
+msgid "Reasoning models count their thinking in this limit, so keep it generous."
+msgstr "مدل‌های استدلالی فرایند فکر کردن را هم جزو این سقف حساب می‌کنند، پس آن را بالا نگه دارید."
+
+#: includes/AI/Providers/OpenCodeProvider.php:148
+msgid "Asks Chat Completions, Responses and Gemini models for a JSON object. Disable if a model rejects it."
+msgstr "از مدل‌های Chat Completions، Responses و Gemini خروجی JSON درخواست می‌کند. اگر مدلی آن را نپذیرفت غیرفعالش کنید."
+
+#: includes/AI/Providers/OpenCodeProvider.php:152
+msgid "Allow free models that may use data for training"
+msgstr "اجازه استفاده از مدل‌های رایگانی که ممکن است از داده‌ها برای آموزش استفاده کنند"
+
+#: includes/AI/Providers/OpenCodeProvider.php:155
+msgid "OpenCode states that some free models may use submitted data to improve the model. They are blocked unless you enable this."
+msgstr "OpenCode اعلام کرده است که برخی مدل‌های رایگان ممکن است از داده‌های ارسالی برای بهبود مدل استفاده کنند. این مدل‌ها مسدود هستند مگر اینکه این گزینه را فعال کنید."
+
+#: includes/AI/Providers/OpenCodeProvider.php:172
+#: includes/AI/Providers/OpenCodeProvider.php:352
+msgid "This OpenCode model does not generate text and cannot be used to design pages."
+msgstr "این مدل OpenCode متن تولید نمی‌کند و برای طراحی صفحه قابل استفاده نیست."
+
+#: includes/AI/Providers/OpenCodeProvider.php:175
+#: includes/AI/Providers/OpenCodeProvider.php:336
+msgid "This free model may use your data for training. Enable \"Allow free models that may use data for training\" to use it."
+msgstr "این مدل رایگان ممکن است از داده‌های شما برای آموزش استفاده کند. برای استفاده از آن، گزینه «اجازه استفاده از مدل‌های رایگانی که ممکن است از داده‌ها برای آموزش استفاده کنند» را فعال کنید."
+
+#: includes/AI/Providers/OpenCodeProvider.php:207
+msgid "The page brief you enter (business description, audience, goals, tone, language, colors and call to action), the approved outline and, when regenerating a section, that section's content. OpenCode forwards the request to the provider of the selected model; see OpenCode's privacy policy for retention rules per model."
+msgstr "توضیحاتی که برای صفحه وارد می‌کنید (شرح کسب‌وکار، مخاطب، اهداف، لحن، زبان، رنگ‌ها و فراخوان اقدام)، ساختار تأییدشده و هنگام بازتولید یک بخش، محتوای همان بخش. OpenCode درخواست را به ارائه‌دهنده مدل انتخاب‌شده ارسال می‌کند؛ قوانین نگهداری داده برای هر مدل را در سیاست حفظ حریم خصوصی OpenCode ببینید."
+
+#: includes/AI/Providers/OpenCodeProvider.php:589
+msgid "Your OpenCode Zen balance is too low. Add credits in the OpenCode console."
+msgstr "موجودی OpenCode Zen شما کافی نیست. در کنسول OpenCode اعتبار اضافه کنید."
+
+#: includes/AI/Providers/OpenCodeProvider.php:590
+msgid "The monthly usage limit of your OpenCode workspace was reached."
+msgstr "سقف مصرف ماهانه فضای کاری OpenCode شما به پایان رسیده است."
+
+#: includes/AI/Providers/OpenCodeProvider.php:591
+msgid "Your monthly OpenCode usage limit was reached."
+msgstr "سقف مصرف ماهانه OpenCode شما به پایان رسیده است."
+
+#: includes/AI/Providers/OpenCodeProvider.php:592
+msgid "OpenCode does not offer this model on your plan. Check the model id."
+msgstr "OpenCode این مدل را در طرح شما ارائه نمی‌کند. شناسه مدل را بررسی کنید."
+
+#: includes/AI/Providers/OpenCodeProvider.php:593
+msgid "The OpenCode Go usage limit was reached. Try again later."
+msgstr "سقف مصرف OpenCode Go به پایان رسیده است. بعداً دوباره تلاش کنید."
+
+#: includes/AI/Providers/OpenCodeProvider.php:594
+msgid "The free usage limit for this OpenCode model was reached. Try again later."
+msgstr "سقف استفاده رایگان از این مدل OpenCode به پایان رسیده است. بعداً دوباره تلاش کنید."
+
+#: includes/AI/Providers/OpenCodeProvider.php:595
+msgid "OpenCode does not serve this model in your server's region."
+msgstr "OpenCode این مدل را در منطقه سرور شما ارائه نمی‌کند."
+
+#: includes/AI/Providers/OpenCodeProvider.php:596
+msgid "Your OpenCode workspace data policy blocks this model."
+msgstr "سیاست داده فضای کاری OpenCode شما این مدل را مسدود کرده است."
 
 #: includes/AI/Providers/WPAIClientProvider.php:36
 msgid "WordPress AI Client (Connectors)"

@@ -1,4 +1,4 @@
-# QA report: AI Page Designer 1.0.0
+# QA report: AI Page Designer 1.1.0
 
 Date: 2026-09-24. Environment: PHP 8.4 CLI, SQLite database integration, Chromium (Playwright 1.56), WordPress 7.1.2 and 6.6.2, Elementor 4.4.
 
@@ -8,25 +8,31 @@ Date: 2026-09-24. Environment: PHP 8.4 CLI, SQLite database integration, Chromiu
 | --- | --- | --- |
 | WordPress Coding Standards (WPCS 3.4) | `composer lint` | ✅ 0 errors, 0 warnings |
 | PHP 7.4+ compatibility | `composer compat` | ✅ clean |
-| PHPUnit, WordPress 7.1.2, single site | `composer test` | ✅ 110 tests, 518 assertions |
-| PHPUnit, WordPress 7.1.2, multisite | `composer test:multisite` | ✅ 110 tests, 519 assertions |
-| PHPUnit, WordPress 6.6.2 (minimum), single site | idem with a 6.6.2 environment | ✅ 110 tests, 518 assertions |
-| PHPUnit, WordPress 6.6.2, multisite | idem | ✅ 110 tests, 519 assertions |
+| PHPUnit, WordPress 7.1.2, single site | `composer test` | ✅ 123 tests, 599 assertions |
+| PHPUnit, WordPress 7.1.2, multisite | `composer test:multisite` | ✅ 123 tests, 600 assertions |
+| PHPUnit, WordPress 6.6.2 (minimum), single site | idem with a 6.6.2 environment | ✅ 123 tests, 599 assertions |
+| PHPUnit, WordPress 6.6.2, multisite | idem | ✅ 123 tests, 600 assertions |
 | Elementor 4.4 integration | `composer test:elementor` | ✅ 2 tests, 13 assertions |
 | ESLint (WordPress config) | `npm run lint:js` | ✅ clean |
 | Production build | `npm run build` | ✅ |
 | Block validation with `@wordpress/blocks` (current) | `npm run test:blocks` | ✅ all blocks valid (4 fixture files, 308 blocks) |
 | Block validity in the real WordPress 7.1.2 editor | `block-validity.spec.js` + wizard flows | ✅ 0 invalid blocks |
 | Block validity in the real WordPress 6.6.2 editor | same check on a 6.6.2 site with 6.6-generated markup | ✅ 0 invalid blocks (308 blocks) |
-| Playwright E2E, accessibility, RTL/LTR, responsive | `npm run test:e2e` | ✅ 13 passed |
+| Playwright E2E, accessibility, RTL/LTR, responsive | `npm run test:e2e` | ✅ 14 passed (includes OpenCode provider flow) |
 | Plugin Check 2.1.0 on the release package | `wp plugin check ai-page-designer` | ✅ 0 errors, 1 advisory warning (see below) |
-| Release package | `bash bin/build-zip.sh` | ✅ `dist/ai-page-designer.zip` (≈220 KB) |
+| Release package | `bash bin/build-zip.sh` | ✅ `dist/ai-page-designer.zip` (≈232 KB) |
 
 ### Plugin Check warning
 
 `PluginCheck.CodeAnalysis.AIProvider.DirectIntegration` in `includes/AI/Providers/OpenAICompatibleProvider.php`: "Direct integration with a third-party AI provider (api.openai.com) detected. Consider the WordPress AI Client".
 
 This is advisory and intentional. The plugin already implements the WordPress AI Client provider and uses it by default on WordPress 7.0+. The OpenAI-compatible provider is optional and has no default endpoint. The OpenAI host appears only as a help-text example and to show OpenAI's terms and privacy links when that host is configured.
+
+## OpenCode provider (1.1.0)
+
+`tests/Unit/OpenCodeProviderTest.php` (13 tests) covers format detection, the endpoint and auth header for each format (Chat Completions and Responses: `Authorization: Bearer`; Messages: `x-api-key` + `anthropic-version`; Gemini: `x-goog-api-key`), response parsing, truncation and refusal handling per format, Zen vs Go base URLs and cost confirmation, the training-data opt-in, rejection of non-text models, OpenCode error mapping, and key scrubbing. `tests/E2E/opencode.spec.js` configures the provider through the settings screen and generates a structure through the Messages format.
+
+The OpenCode documentation site (opencode.ai) was not reachable from the build environment; the integration follows OpenCode's published documentation and gateway source code in the `sst/opencode` repository. Verify against a live key before release.
 
 ## Required scenarios
 

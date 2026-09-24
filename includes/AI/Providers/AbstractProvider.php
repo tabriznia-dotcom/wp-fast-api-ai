@@ -9,6 +9,7 @@ namespace AIPageDesigner\AI\Providers;
 
 use AIPageDesigner\AI\Contracts\ProviderInterface;
 use AIPageDesigner\Core\Options;
+use AIPageDesigner\Security\Redactor;
 use AIPageDesigner\Security\Secrets;
 use WP_Error;
 
@@ -78,6 +79,28 @@ abstract class AbstractProvider implements ProviderInterface {
 		}
 		$stored = $this->setting( $field_id );
 		return is_string( $stored ) ? Secrets::decrypt( $stored ) : '';
+	}
+
+	/**
+	 * Removes this provider's secrets from text coming back from the service
+	 * (for example an error message that echoes the key), then applies the
+	 * generic redaction rules.
+	 *
+	 * @param string $text Text.
+	 * @return string
+	 */
+	protected function scrub( $text ) {
+		$text = (string) $text;
+		foreach ( $this->get_settings_fields() as $field ) {
+			if ( empty( $field['secret'] ) ) {
+				continue;
+			}
+			$secret = $this->secret( $field['id'] );
+			if ( strlen( $secret ) >= 4 ) {
+				$text = str_replace( $secret, Redactor::MASK, $text );
+			}
+		}
+		return Redactor::redact_string( $text );
 	}
 
 	/**
